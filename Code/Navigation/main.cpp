@@ -11,7 +11,9 @@
 #include <regex>
 #include <queue>
 #include <sstream>
+
 #include "clock_timer.h"
+#include "Vertex.h"
 
 std::string ltrim(std::string s){
 	s.erase(s.begin(),find_if_not(s.begin(),s.end(),[](int c){return isspace(c);}));
@@ -21,19 +23,7 @@ std::string rtrim(std::string s){
 	s.erase(find_if_not(s.rbegin(),s.rend(),[](int c){return isspace(c);}).base(), s.end());
 	return s;
 }
-class Vertex{
-public:
-	std::string from;
-	int cost;
-	std::string city;
 
-	Vertex(std::string mFrom, std::string mCity, int mCost){
-		from = mFrom;
-		cost = mCost;
-		city = mCity;
-	}
-	Vertex();
-};
 
 int main(int argc, const char * argv[]) {
 	clock_timer timerrecord;
