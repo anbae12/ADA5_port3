@@ -22,6 +22,7 @@ public:
 	std::string ltrim(std::string s);
 	std::string getFrom(std::stringstream &stream);
 	void trim(std::string &);
+	std::string city, cost;
 private:
 	std::string line;
 	std::vector<Vertex> vertices;

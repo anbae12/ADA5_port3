@@ -17,11 +17,13 @@ FileHandle::FileHandle(std::string filename) {
 
 std::vector<Vertex> FileHandle::doParse(){
 	while(!fin.eof()){
-		fin.seekg (1, std::ios::cur); // Ignore starting { in line
+		// Ignore starting { in line
+		fin.seekg (1, std::ios::cur);
+
+		//Get next line
 		getline(fin, line);
 
 		std::stringstream lineStream(line);
-		std::string city, cost;
 
 		std::string from = getFrom(lineStream);
 
