@@ -20,6 +20,8 @@ public:
 	std::vector<Vertex> doParse();
 	std::string rtrim(std::string s);
 	std::string ltrim(std::string s);
+	std::string getFrom(std::stringstream &stream);
+	void trim(std::string &);
 private:
 	std::string line;
 	std::vector<Vertex> vertices;

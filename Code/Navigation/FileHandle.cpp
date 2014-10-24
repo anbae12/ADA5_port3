@@ -17,26 +17,24 @@ FileHandle::FileHandle(std::string filename) {
 
 std::vector<Vertex> FileHandle::doParse(){
 	while(!fin.eof()){
-		fin.seekg (1, std::ios::cur); // Ignore starting { in raw file
+		fin.seekg (1, std::ios::cur); // Ignore starting { in line
 		getline(fin, line);
 
 		std::stringstream lineStream(line);
 		std::string city, cost;
 
-		std::string from = "";
+		std::string from = getFrom(lineStream);
 
-		while(std::getline(lineStream,city,',')){
-			city = rtrim(ltrim(city)); // rtrim = remove right space, ltrim = remove left space.
-			if(from == ""){
-				from = city;
-				continue;
-			}
-			std::getline(lineStream,cost,',');
+		while(std::getline(lineStream,city,',') && std::getline(lineStream,cost,',')){
+			//Remove leading and trailing whitespaces.(by ref)
+			trim(city);
 
+			//convert to integer
 			int iCost;
 			std::istringstream ( cost ) >>  iCost;
-			Vertex vertex(from, city, iCost);
-			vertices.push_back(vertex);
+
+			//Create object and push to vector - this might be priority_queue later
+			vertices.push_back(Vertex(from, city, iCost));
 		}
 	}
 
@@ -50,6 +48,17 @@ std::string FileHandle::ltrim(std::string s){
 std::string FileHandle::rtrim(std::string s){
 	s.erase(find_if_not(s.rbegin(),s.rend(),[](int c){return isspace(c);}).base(), s.end());
 	return s;
+}
+std::string FileHandle::getFrom(std::stringstream &stream){
+	std::string from;
+	std::getline(stream,from,',');
+
+	return from;
+}
+
+
+void FileHandle::trim(std::string &s){
+	s = ltrim(rtrim(s));
 }
 
 
