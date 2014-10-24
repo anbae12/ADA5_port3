@@ -2,8 +2,7 @@
 //  main.cpp
 //  Navigation
 //
-//  Created by Anders Launer Bæk on 24/10/14.
-//  Copyright (c) 2014 Anders Launer Bæk. All rights reserved.
+//  Created by Mathias, Kiddi og Anders.
 //
 
 #include <iostream>
