@@ -10,7 +10,7 @@
 int main(int argc, const char * argv[]) {
     clock_timer timerrecord;
     timerrecord.start_timer();
-    std::cout << "Hello, World!\n";
+    std::cout << "Hello, World z!\n";
     timerrecord.stop_timer();
 
     return 0;
