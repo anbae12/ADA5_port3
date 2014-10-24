@@ -19,7 +19,6 @@ std::vector<Vertex> FileHandle::doParse(){
 	while(!fin.eof()){
 		fin.seekg (1, std::ios::cur); // Ignore starting { in raw file
 		getline(fin, line);
-		list_with_lines.push_back(line);
 
 		std::stringstream lineStream(line);
 		std::string city, cost;

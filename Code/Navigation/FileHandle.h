@@ -21,8 +21,6 @@ public:
 	std::string rtrim(std::string s);
 	std::string ltrim(std::string s);
 private:
-	std::vector <std::string> list_with_lines;
-	std::vector <std::string> words;
 	std::string line;
 	std::vector<Vertex> vertices;
 	std::ifstream fin;
