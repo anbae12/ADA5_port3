@@ -24,6 +24,7 @@ public:
 	void addVertex(std::string value);
 	void addEdge(std::string From, std::string To, int cost);
 	std::string printVertices();
+	std::string printFrom(std::string from);
 };
 
 #endif /* GRAPH_H_ */

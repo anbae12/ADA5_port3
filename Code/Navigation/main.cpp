@@ -22,10 +22,13 @@ int main(int argc, const char * argv[]) {
 
 	std::ofstream myfile;
 	myfile.open ("example.txt");
-	std::string output = graph.printVertices();
-	myfile << output;
+	myfile << graph.printVertices();
 	myfile.close();
 
+	std::ofstream myfile2;
+	myfile2.open ("from-graph.txt");
+	myfile2 << graph.printFrom("Nysted");
+	myfile2.close();
 	/*
 	for(auto i = vertices.begin(); i != vertices.end(); ++i){
 		std::cout <<  "from: " << (*i).from << "\tcity: " << (*i).to << "\tcost: " << (*i).cost << std::endl;

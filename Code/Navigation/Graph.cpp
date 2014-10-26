@@ -47,3 +47,17 @@ std::string Graph::printVertices(){
 	}
 	return lateXGenerator.getOutput();
 }
+
+
+std::string Graph::printFrom(std::string from){
+	LateXGenerator lateXGenerator;
+	Vertex * fromP = vertices.find(from)->second;
+
+	lateXGenerator.AddVertex(from);
+
+	for(auto i = fromP->edge.begin(); i != fromP->edge.end(); ++i){
+		std::cout << "From \"" + from + "\" to: " << i->first->element << std::endl;
+		lateXGenerator.AddEdge(from,i->first->element, i->second);
+	}
+	return lateXGenerator.getOutput();
+}
