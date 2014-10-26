@@ -1,14 +1,15 @@
 /*
  * Vertex.cpp
  *
- *  Created on: Oct 24, 2014
+ *  Created on: Oct 26, 2014
  *      Author: exchizz
  */
 
 #include "Vertex.h"
 
-Vertex::Vertex(std::string mFrom, std::string mCity, int mCost){
-	from = mFrom;
-	cost = mCost;
-	city = mCity;
+Vertex::Vertex(std::string value) {
+	// TODO Auto-generated constructor stub
+	element = value;
 }
+
+

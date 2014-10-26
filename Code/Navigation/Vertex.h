@@ -1,21 +1,24 @@
 /*
  * Vertex.h
  *
- *  Created on: Oct 24, 2014
+ *  Created on: Oct 26, 2014
  *      Author: exchizz
  */
+#include <map>
+#include <string>
+#include <vector>
+#include <iostream>
+
 
 #ifndef VERTEX_H_
 #define VERTEX_H_
-#include <string>
 
 class Vertex {
+	typedef std::vector<std::pair <Vertex*, int> > Edge;
 public:
-	std::string from;
-	int cost;
-	std::string city;
-	Vertex(std::string mFrom, std::string mCity, int mCost);
-	Vertex();
+	Vertex(std::string value);
+	std::string element;
+	Edge edge;
 };
 
 #endif /* VERTEX_H_ */

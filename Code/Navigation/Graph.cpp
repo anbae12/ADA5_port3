@@ -32,17 +32,18 @@ void Graph::addEdge(std::string From, std::string To, int Cost) {
 }
 
 
-void Graph::printVertices(){
+std::string Graph::printVertices(){
 	LateXGenerator lateXGenerator;
+	int m = 0;
 
-	for(Vertices::iterator i = vertices.begin(); i != vertices.end(); ++i){
+	for(Vertices::iterator i = vertices.begin(); i != vertices.end() && m++ < 100; ++i){
 		lateXGenerator.AddVertex(i->first);
 		std::cout << "Edge from: " <<  i->first;
-		for(std::vector<std::pair <Vertex*, int> >::iterator j = i->second->edge.begin(); j != i->second->edge.end(); ++j ){
+		for(std::vector<std::pair <Vertex*, int> >::iterator j = i->second->edge.begin(); j != i->second->edge.end() ; ++j ){
 			std::cout << "\t" << j->first->element << " price: " << j->second <<  std::endl;
 			lateXGenerator.AddEdge(i->first,j->first->element, j->second);
 		}
 		std::cout << std::endl;
 	}
-	std::cout << "dot output: " << lateXGenerator.getOutput() << std::endl;
+	return lateXGenerator.getOutput();
 }

@@ -23,7 +23,7 @@ public:
 	std::map <std::string, Vertex*> vertices;
 	void addVertex(std::string value);
 	void addEdge(std::string From, std::string To, int cost);
-	void printVertices();
+	std::string printVertices();
 };
 
 #endif /* GRAPH_H_ */

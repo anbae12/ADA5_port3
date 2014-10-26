@@ -15,7 +15,7 @@ FileHandle::FileHandle(std::string filename) {
 	}
 }
 
-std::vector<Vertex> FileHandle::doParse(){
+std::vector<VertexTemp> FileHandle::doParse(Graph &graph){
 	while(!fin.eof()){
 		// Ignore starting { in line
 		fin.seekg (1, std::ios::cur);
@@ -26,17 +26,28 @@ std::vector<Vertex> FileHandle::doParse(){
 		std::stringstream lineStream(line);
 
 		std::string from = getFrom(lineStream);
+		try {
+			graph.addVertex(from);
+		} catch (std::string *e){
+			std::cout << "exception: " << *e << std::endl;
+		}
 
-		while(std::getline(lineStream,city,',') && std::getline(lineStream,cost,',')){
+		while(std::getline(lineStream,to,',') && std::getline(lineStream,cost,',')){
 			//Remove leading and trailing whitespaces.(by ref)
-			trim(city);
+			trim(to);
 
 			//convert to integer
 			int iCost;
 			std::istringstream ( cost ) >>  iCost;
 
 			//Create object and push to vector - this might be priority_queue later
-			vertices.push_back(Vertex(from, city, iCost));
+			//vertices.push_back(VertexTemp(from, city, iCost));
+			try {
+				graph.addVertex(to);
+			} catch (std::string *e){
+				std::cout << "exception: " << *e << std::endl;
+			}
+			graph.addEdge(from, to, iCost);
 		}
 	}
 
@@ -61,6 +72,12 @@ std::string FileHandle::getFrom(std::stringstream &stream){
 
 void FileHandle::trim(std::string &s){
 	s = ltrim(rtrim(s));
+}
+
+VertexTemp::VertexTemp(std::string From, std::string To, int Cost){
+	from = From;
+	to = To;
+	cost = Cost;
 }
 
 
