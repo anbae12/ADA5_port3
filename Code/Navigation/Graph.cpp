@@ -6,10 +6,8 @@
  */
 
 #include "Graph.h"
-
 Graph::Graph() {
 	// TODO Auto-generated constructor stub
-
 }
 
 void Graph::addVertex(std::string value) {
@@ -29,6 +27,12 @@ void Graph::addEdge(std::string From, std::string To, int Cost) {
 	Vertex* from = vertices.find(From)->second;
 	Vertex* to = vertices.find(To)->second;
 	from->edge.push_back(std::make_pair(to, Cost));
+    
+    /////////////////
+    
+    pq.push(std::make_pair(to, Cost));
+    
+    
 }
 
 

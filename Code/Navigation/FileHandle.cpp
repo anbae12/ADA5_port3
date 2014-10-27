@@ -52,7 +52,6 @@ std::vector<VertexTemp> FileHandle::doParse(Graph &graph){
 				std::cout << "exception: " << *e << std::endl;
 			}
 			graph.addEdge(from, to, iCost);
-            ////////  pq.push(VertexTemp(from, to, iCost);
 		}
 	}
 

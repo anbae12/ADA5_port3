@@ -13,21 +13,19 @@
 #include <queue>
 #include <vector>
 
-struct Comp{
-    bool operator()(const VertexTemp& a,const VertexTemp& b){
-        return b.cost<a.cost;
-    }
-};
+
+
 
 
 
 
 int main(int argc, const char * argv[]) {
-    std::priority_queue< VertexTemp, std::vector<VertexTemp>, Comp> pq;
+    Graph pqueue;
+    pqueue.pq;
     
 	clock_timer timerrecord;
 	timerrecord.start_timer();
-/*
+
 	
     //FileHandle filehandle("../../data.raw");
     FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
@@ -35,7 +33,7 @@ int main(int argc, const char * argv[]) {
 
 	Graph graph;
 	filehandle.doParse(graph);
-
+/*
 	std::ofstream myfile;
 	myfile.open ("example.txt");
 	myfile << graph.printVertices();
@@ -50,26 +48,24 @@ int main(int argc, const char * argv[]) {
 		std::cout <<  "from: " << (*i).from << "\tcity: " << (*i).to << "\tcost: " << (*i).cost << std::endl;
 		graph.addVertex(i->from);
 	}
-	 */
+ 
     
     
+ 
+    
+    pqueue.pq.push(VertexTemp("Middelfart", "Odense2",210));
+    pqueue.pq.push(VertexTemp("Middelfart", "Odense3",22));
+ 
     
     
-    
-    
-    pq.push(VertexTemp("Middelfart", "Odense1",200));
-    pq.push(VertexTemp("Middelfart", "Odense2",210));
-    pq.push(VertexTemp("Middelfart", "Odense3",22));
-    
-    
-    VertexTemp b = pq.top();
-    pq.pop();
+    VertexTemp b = pqueue.pq.top();
+    pqueue.pq.pop();
     std::cout<<b.from<<" "<<b.to<<" "<<b.cost<<std::endl;
 
-    VertexTemp bb = pq.top();
-    pq.pop();
+    VertexTemp bb = pqueue.pq.top();
+    pqueue.pq.pop();
     std::cout<<bb.from<<" "<<bb.to<<" "<<bb.cost<<std::endl;
-    
+ */   
     
     
 	std::cout << "Hello, World!\n";
