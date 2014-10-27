@@ -22,6 +22,10 @@ struct Comp{
     }
 };
 
+//using pqueue = std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp>;
+
+using pqueue = std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp>;
+
 class Graph {
 	typedef std::map <std::string, Vertex*> Vertices;
 	typedef std::pair <Vertex, int> Edge;
@@ -30,13 +34,15 @@ class Graph {
     
 
 public:
-    std::priority_queue< std::pair <Vertex*, int>,std::vector<Vertex*>, Comp> pq;
+    
+    //std::priority_queue<std::pair<Vertex*, int>, std::vector<Vertex*, int> >, MyComparator> queue;
 	Graph();
 	std::map <std::string, Vertex*> vertices;
 	void addVertex(std::string value);
 	void addEdge(std::string From, std::string To, int cost);
 	std::string printVertices();
 	std::string printFrom(std::string from);
+    pqueue pq;
     
 };
 

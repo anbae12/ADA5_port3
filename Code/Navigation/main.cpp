@@ -20,16 +20,13 @@
 
 
 int main(int argc, const char * argv[]) {
-    Graph pqueue;
-    pqueue.pq;
-    
+
 	clock_timer timerrecord;
 	timerrecord.start_timer();
 
 	
     //FileHandle filehandle("../../data.raw");
     FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
-    
 
 	Graph graph;
 	filehandle.doParse(graph);
@@ -48,25 +45,12 @@ int main(int argc, const char * argv[]) {
 		std::cout <<  "from: " << (*i).from << "\tcity: " << (*i).to << "\tcost: " << (*i).cost << std::endl;
 		graph.addVertex(i->from);
 	}
- 
-    
-    
- 
-    
-    pqueue.pq.push(VertexTemp("Middelfart", "Odense2",210));
-    pqueue.pq.push(VertexTemp("Middelfart", "Odense3",22));
- 
-    
-    
-    VertexTemp b = pqueue.pq.top();
-    pqueue.pq.pop();
-    std::cout<<b.from<<" "<<b.to<<" "<<b.cost<<std::endl;
-
-    VertexTemp bb = pqueue.pq.top();
-    pqueue.pq.pop();
-    std::cout<<bb.from<<" "<<bb.to<<" "<<bb.cost<<std::endl;
  */   
     
+    
+    
+    
+    std::cout<<"to: "<< graph.pq.top().first<<" pris: "<<graph.pq.top().second<<std::endl;
     
 	std::cout << "Hello, World!\n";
 	timerrecord.stop_timer();
