@@ -25,7 +25,7 @@ public:
 class FileHandle {
 public:
 	FileHandle(std::string filename);
-	std::vector<VertexTemp> doParse(Graph &graph);
+    std::vector<VertexTemp> doParse(Graph &graph);
 	std::string rtrim(std::string s);
 	std::string ltrim(std::string s);
 	std::string getFrom(std::stringstream &stream);

@@ -13,7 +13,6 @@
 #include <queue>
 #include <vector>
 
-
 struct Comp{
     bool operator()(const VertexTemp& a,const VertexTemp& b){
         return b.cost<a.cost;
@@ -21,13 +20,15 @@ struct Comp{
 };
 
 
+
+
 int main(int argc, const char * argv[]) {
     std::priority_queue< VertexTemp, std::vector<VertexTemp>, Comp> pq;
     
 	clock_timer timerrecord;
 	timerrecord.start_timer();
-
-	/*
+/*
+	
     //FileHandle filehandle("../../data.raw");
     FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
     
