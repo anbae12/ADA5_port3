@@ -17,7 +17,7 @@
 #define GRAPH_H_
 
 struct Comp{
-    bool operator()(const std::pair<Vertex*, int> &a ,const std::pair<Vertex*, int >&b ){
+    bool operator()(const std::pair<Vertex*, int> &a ,const std::pair<Vertex*, int> &b ){
         return b.second < a.second;
     }
 };

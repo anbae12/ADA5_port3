@@ -28,8 +28,9 @@ void Graph::addEdge(std::string From, std::string To, int Cost) {
 	Vertex* to = vertices.find(To)->second;
 	from->edge.push_back(std::make_pair(to, Cost));
     
-    /////////////////
     
+    /////////////////
+    // std::cout<<"#1to: "<< to<<" pris: "<<Cost<<std::endl;
     pq.push(std::make_pair(to, Cost));
     
     

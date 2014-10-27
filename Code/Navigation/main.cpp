@@ -45,12 +45,16 @@ int main(int argc, const char * argv[]) {
 		std::cout <<  "from: " << (*i).from << "\tcity: " << (*i).to << "\tcost: " << (*i).cost << std::endl;
 		graph.addVertex(i->from);
 	}
- */   
+ */
     
     
     
+    /*
+    std::cout<<"#2to: "<< graph.pq.top().first<<" pris: "<<graph.pq.top().second<<std::endl;
+    graph.pq.pop();
+    */
     
-    std::cout<<"to: "<< graph.pq.top().first<<" pris: "<<graph.pq.top().second<<std::endl;
+    graph.printFrom("Nysted");
     
 	std::cout << "Hello, World!\n";
 	timerrecord.stop_timer();
