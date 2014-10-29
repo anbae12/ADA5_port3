@@ -7,10 +7,6 @@
 
 #include "FileHandle.h"
 
-
-
-
-
 FileHandle::FileHandle(std::string filename) {
 	fin.open(filename);
 	if (!fin.good()){
@@ -54,7 +50,6 @@ std::vector<VertexTemp> FileHandle::doParse(Graph &graph){
 			graph.addEdge(from, to, iCost);
 		}
 	}
-
 	return vertices;
 }
 
@@ -73,7 +68,6 @@ std::string FileHandle::getFrom(std::stringstream &stream){
 	return from;
 }
 
-
 void FileHandle::trim(std::string &s){
 	s = ltrim(rtrim(s));
 }
@@ -83,6 +77,3 @@ VertexTemp::VertexTemp(std::string From, std::string To, int Cost){
 	to = To;
 	cost = Cost;
 }
-
-
-

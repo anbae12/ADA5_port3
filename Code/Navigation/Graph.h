@@ -17,7 +17,7 @@
 #define GRAPH_H_
 
 struct Comp{
-    bool operator()(const std::pair<Vertex*, int> &a ,const std::pair<Vertex*, int> &b ){
+    bool operator()(const std::pair<Vertex*, int> &a ,const std::pair<Vertex*, int> &b ) const {
         return b.second < a.second;
     }
 };
@@ -42,7 +42,9 @@ public:
 	void addEdge(std::string From, std::string To, int cost);
 	std::string printVertices();
 	std::string printFrom(std::string from);
+    //void addToQueue(std::string From, std::string To, int cost);
     pqueue pq;
+    bool printException;
     
 };
 

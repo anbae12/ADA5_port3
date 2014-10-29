@@ -11,7 +11,7 @@ Graph::Graph() {
 }
 
 void Graph::addVertex(std::string value) {
-	if(vertices.find(value) != vertices.end()){
+	if(vertices.find(value) != vertices.end() && printException==true){
 		throw new std::string("Element \"" + value + "\" already exists!");
 	}
 	vertices[value] = new Vertex(value);
@@ -24,18 +24,30 @@ void Graph::addEdge(std::string From, std::string To, int Cost) {
 	if(vertices.find(To) == vertices.end())
 		throw new std::string("To \"" + To + "\" does not exist!");
 
-	Vertex* from = vertices.find(From)->second;
+	Vertex* from = vertices.find(From)->second; ////////////////////////////// SKAL BEGGE VÆRE SECOND??
 	Vertex* to = vertices.find(To)->second;
 	from->edge.push_back(std::make_pair(to, Cost));
     
     
-    /////////////////
-    // std::cout<<"#1to: "<< to<<" pris: "<<Cost<<std::endl;
-    pq.push(std::make_pair(to, Cost));
     
-    
-}
+    //pq.push(std::make_pair(i->first->element, Cost));
+    //pq.push(std::make_pair(to, Cost));
+    //Vertex * fromP = vertices.find(from)->second;
+    //auto i = from->edge.begin();
+    //while (i != from->edge.end()) {
+    //    pq.push(std::make_pair(to, Cost));
+    //    i++;
+   // }
+    //pq.push(std::make_pair(i->first->element, Cost));
 
+
+ 
+        //std::cout << "From \"" + from + "\" to: " << i->first->element << std::endl;
+        /////////////////
+        // std::cout<<"#1to: "<< to<<" pris: "<<Cost<<std::endl;
+        //pq.push(std::make_pair(i->first->element, Cost));
+
+}
 
 std::string Graph::printVertices(){
 	LateXGenerator lateXGenerator;

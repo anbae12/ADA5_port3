@@ -22,13 +22,15 @@
 int main(int argc, const char * argv[]) {
 
 	clock_timer timerrecord;
+    Graph graph;
+    graph.printException=false;
 	timerrecord.start_timer();
-
+    
 	
     //FileHandle filehandle("../../data.raw");
     FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
 
-	Graph graph;
+	
 	filehandle.doParse(graph);
 /*
 	std::ofstream myfile;
@@ -45,17 +47,16 @@ int main(int argc, const char * argv[]) {
 		std::cout <<  "from: " << (*i).from << "\tcity: " << (*i).to << "\tcost: " << (*i).cost << std::endl;
 		graph.addVertex(i->from);
 	}
+ 
  */
     
-    
-    
+   
     /*
     std::cout<<"#2to: "<< graph.pq.top().first<<" pris: "<<graph.pq.top().second<<std::endl;
     graph.pq.pop();
-    */
-    
+    graph.vertices.find("Nysted")->second.pop();
     graph.printFrom("Nysted");
-    
+    */
 	std::cout << "Hello, World!\n";
 	timerrecord.stop_timer();
 
