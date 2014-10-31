@@ -29,6 +29,9 @@ void Graph::addEdge(std::string From, std::string To, int Cost) {
 
 	from->edge.push(std::make_pair(to,Cost));
 	//from->edge.push_back(std::make_pair(to, Cost));
+    
+    
+    
 
 }
 
@@ -55,12 +58,10 @@ std::string Graph::printFromDot(std::string from){
 	Vertex * fromP = vertices.find(from)->second;
 
 	lateXGenerator.AddVertex(from);
-/*
-	for(auto i = fromP->edge.begin(); i != fromP->edge.end(); ++i){
-		std::cout << "From \"" + from + "\" to: " << i->first->element << std::endl;
-		lateXGenerator.AddEdge(from,i->first->element, i->second);
-	}
-	*/
+        for(auto it = vertices[from]->edge.get_container().begin() ; it != vertices[from]->edge.get_container().end(); ++it ){
+            std::cout << "From \"" + from + "\" to: " << it->first->element << std::endl;
+            lateXGenerator.AddEdge(from,it->first->element, it->second);
+        }
 	return lateXGenerator.getOutput();
 }
 

@@ -10,6 +10,10 @@
 Vertex::Vertex(std::string value) {
 	// TODO Auto-generated constructor stub
 	element = value;
+    known = false;
+    dist = NULL;
+    // From used in dijkstras
+    
 }
 
 

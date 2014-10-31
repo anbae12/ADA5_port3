@@ -42,6 +42,8 @@ public:
     typedef Adapter<C> Container;
 
     Container edge;
+    bool known;
+    int dist;
 };
 
 #endif /* VERTEX_H_ */

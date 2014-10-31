@@ -9,6 +9,7 @@
 #include "Vertex.h"
 #include "FileHandle.h"
 #include "Graph.h"
+#include "dijkstras.h"
 #include <fstream>
 #include <queue>
 #include <vector>
@@ -16,23 +17,22 @@
 
 
 int main(int argc, const char * argv[]) {
-
 	clock_timer timerrecord;
     Graph graph;
+    
 	timerrecord.start_timer();
     
-	
-    FileHandle filehandle("../../data.raw");
-   // FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
+    //FileHandle filehandle("../../data.raw");
+    FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
 
-	
+    // question one
 	filehandle.doParse(graph);
-
+/*
 	std::ofstream myfile;
 	myfile.open ("example.txt");
 	myfile << graph.printVertices();
 	myfile.close();
-/*
+
 	std::ofstream myfile2;
 	myfile2.open ("from-graph.txt");
 	myfile2 << graph.printFrom("Nysted");
@@ -42,26 +42,15 @@ int main(int argc, const char * argv[]) {
 		std::cout <<  "from: " << (*i).from << "\tcity: " << (*i).to << "\tcost: " << (*i).cost << std::endl;
 		graph.addVertex(i->from);
 	}
- 
  */
+	
+    // question two
+    graph.printFrom("Allinge");
+    // question three
+    dijkstras di("Allinge", graph);
+
     
-   
-    /*
-    std::cout<<"#2to: "<< graph.pq.top().first<<" pris: "<<graph.pq.top().second<<std::endl;
-    graph.pq.pop();
-    graph.vertices.find("Nysted")->second.pop();
-    graph.printFrom("Nysted");
-    */
-	/*
-	std::cout << "output: " << graph.vertices["Odense"]->edge.top().first->element;
-	std::cout << "output: " << graph.vertices["Odense"]->edge.top().second << std::endl;
-	graph.vertices["Odense"]->edge.pop();
-	std::cout << "output: " << graph.vertices["Odense"]->edge.top().first->element;
-	std::cout << "output: " << graph.vertices["Odense"]->edge.top().second << std::endl;
-	*/
-	std::cout << "output: " << graph.vertices["Odense"]->edge.top().first->element << std::endl;
-	//auto it = graph.vertices["Odense"]->edge.get_container();
-	graph.printFrom("Allinge");
+    
 	std::cout << "Hello, World!\n";
 	timerrecord.stop_timer();
 
