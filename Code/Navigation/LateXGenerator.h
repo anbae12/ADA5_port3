@@ -14,7 +14,7 @@ public:
 	LateXGenerator();
 	std::string output;
 	void AddVertex(std::string name);
-	void AddEdge(std::string, std::string, int);
+	void AddEdge(std::string, int fromPrice, std::string, int);
 	std::string getOutput();
 
 };
