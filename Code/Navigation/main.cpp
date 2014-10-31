@@ -23,7 +23,7 @@ int main(int argc, const char * argv[]) {
 	timerrecord.start_timer();
     
     //FileHandle filehandle("../../data.raw");
-    FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
+    FileHandle filehandle("/Users/anderslaunerbaek/Documents/data1.raw");
 
     // question one
 	filehandle.doParse(graph);
@@ -45,9 +45,9 @@ int main(int argc, const char * argv[]) {
  */
 	
     // question two
-    graph.printFrom("Allinge");
+    //graph.printFrom("Allinge");
     // question three
-    dijkstras di("Allinge", graph);
+    dijkstras di("A", graph);
 
     
     

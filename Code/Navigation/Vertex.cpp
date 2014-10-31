@@ -12,7 +12,7 @@ Vertex::Vertex(std::string value) {
 	element = value;
     known = false;
     dist = NULL;
-    // From used in dijkstras
+    from="Unknown";  // Used in dijkstras
     
 }
 

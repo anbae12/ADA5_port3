@@ -14,25 +14,19 @@
 #include "Graph.h"
 #include <fstream>
 #include "Vertex.h"
-/*struct Com {
-    bool operator()(const std::pair<Vertex*, int> &a ,const std::pair<Vertex*, int> &b ) const {
-        return b.second < a.second;
-    }
-};*/
 
 class dijkstras{
     typedef std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp> diQueue;
+
 public:
     dijkstras(std::string, Graph&);
     void getDist();
     diQueue dijkstrasQueue;
-    
+
     
 private:
     int distSum;
-    
-    
-    
+ 
 };
 #endif /* defined(__Navigation__dijkstras__) */
 
