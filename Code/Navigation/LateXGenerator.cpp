@@ -24,10 +24,13 @@ void LateXGenerator::AddVertex(std::string name){
 	output += name + " [label=\"" + name + "\"];";
 }
 
-void LateXGenerator::AddEdge(std::string From, std::string To, int Cost){
+void LateXGenerator::AddEdge(std::string From, int fromPrice, std::string To, int Cost){
 	std::ostringstream os;
 	os << Cost;
-	output += From + "->" + To + "[label=\"" + os.str() +  "\"];";
+
+	std::ostringstream os1;
+	os1 << fromPrice;
+	output += From + "->" + To + "[label=\"" + os.str() + "(" + os1.str() +  ")\"];";
 }
 
 std::string LateXGenerator::getOutput(){
