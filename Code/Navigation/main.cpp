@@ -20,10 +20,10 @@ int main(int argc, const char * argv[]) {
 	clock_timer timerrecord;
     Graph graph;
     
-	timerrecord.start_timer();
+	
     
     //FileHandle filehandle("../../data.raw");
-    FileHandle filehandle("/Users/anderslaunerbaek/Documents/data1.raw");
+    FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
 
     // question one
 	filehandle.doParse(graph);
@@ -47,12 +47,17 @@ int main(int argc, const char * argv[]) {
     // question two
     //graph.printFrom("Allinge");
     // question three
-    dijkstras di("A", graph);
-
+    
+    //Metode mangler;
+    timerrecord.start_timer();
+    dijkstras di("Odense", graph);
+    std::cout <<"Business Class Ticket: "<<graph.vertices["København"]->dist <<" DKK"<< " - Travel ";
+    timerrecord.stop_timer();
     
     
-	std::cout << "Hello, World!\n";
-	timerrecord.stop_timer();
+    // path di.path(graph.vertices["A"] ,graph.vertices["E"]);
+    
+    
 
 	return 0;
 }

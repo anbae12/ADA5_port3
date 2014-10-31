@@ -6,13 +6,14 @@
  */
 
 #include "Vertex.h"
+#include <limits> 
 
 Vertex::Vertex(std::string value) {
 	// TODO Auto-generated constructor stub
 	element = value;
     known = false;
-    dist = NULL;
-    from="Unknown";  // Used in dijkstras
+    dist = std::numeric_limits<int>::max();
+    from=NULL;  // Used in dijkstras
     
 }
 

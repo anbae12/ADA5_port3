@@ -44,7 +44,7 @@ public:
     Container edge;
     bool known;
     int dist;
-    std::string from;
+    Vertex* from;
 };
 
 #endif /* VERTEX_H_ */
