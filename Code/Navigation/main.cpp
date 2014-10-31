@@ -19,7 +19,6 @@ int main(int argc, const char * argv[]) {
 
 	clock_timer timerrecord;
     Graph graph;
-    graph.printException=false;
 	timerrecord.start_timer();
     
 	
@@ -28,17 +27,12 @@ int main(int argc, const char * argv[]) {
 
 	
 	filehandle.doParse(graph);
-	//for(auto it = graph.vertices["Bylderup_Bov"]->edge.begin(); it != graph.vertices["Bylderup_Bov"]->edge.end(); ++it ){
-	//	std::cout << it->first->element << std::endl;
-	//}
-	//std::string it = graph.vertices["Bylderup_Bov"]->edge[0].first->element;
-	//std::cout << it << std::endl;
-/*
+
 	std::ofstream myfile;
 	myfile.open ("example.txt");
 	myfile << graph.printVertices();
 	myfile.close();
-
+/*
 	std::ofstream myfile2;
 	myfile2.open ("from-graph.txt");
 	myfile2 << graph.printFrom("Nysted");
