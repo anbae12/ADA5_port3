@@ -8,7 +8,6 @@
 
 #include "dijkstras.h"
 
-
 int dijkstras::path(Vertex* from, Vertex* arrival){
     if (arrival->element == from->element) {
         std::cout<<"YESS MAN: "<<"missing pris..." <<std::endl;
@@ -18,13 +17,14 @@ int dijkstras::path(Vertex* from, Vertex* arrival){
     return path(from, arrival->from);
 }
 
-dijkstras::dijkstras(std::string from, Graph &graph){
+dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
     LateXGenerator lateXGenerator;
+    clock_timer timerrecord;
     if (graph.vertices.find(from) == graph.vertices.end()) {
         std::cout<<"Not found: "<<from<<std::endl;
         exit(0);
     }
-    
+    std::string depTown = from;
     graph.vertices[from]->dist=0;
     //graph.vertices[from]->from = graph.vertices[from]; // used for setting depature town.
     lateXGenerator.AddVertex(from);
@@ -52,10 +52,25 @@ dijkstras::dijkstras(std::string from, Graph &graph){
         graph.vertices[from]->known=true;
     }
     
+    
+    timerrecord.start_timer();
+    
+    int price = graph.vertices[to]->dist;
+    
+    auto time = timerrecord.stop_timer();
+    
+    std::cout <<"---------------------"<<std::endl;
+    std::cout <<"Departure: "<<depTown<<std::endl;
+    std::cout <<"Arrival:   "<<to<<std::endl;
+    std::cout <<"Ticket:    "<< price <<",- DKK"<<std::endl;
+    std::cout <<"Duration:  "<< time <<" [ms]"<<std::endl;
+    std::cout <<"---------------------"<<std::endl;
+    
+    
+    
     std::ofstream myfile;
     myfile.open ("/Users/anderslaunerbaek/Documents/example.dot");
     //myfile.open ("example.txt");
     myfile << lateXGenerator.getOutput();
     myfile.close();
 }
-

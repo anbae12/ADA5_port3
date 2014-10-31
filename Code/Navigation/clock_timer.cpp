@@ -15,8 +15,9 @@ void clock_timer::start_timer(){
     temp_clock=clock();
 }
 
-void clock_timer::stop_timer(){
+float clock_timer::stop_timer(){
     temp_clock = clock()-temp_clock;
     time=(((float)temp_clock)/CLOCKS_PER_SEC)*1000;
-    std::cout<< "Time: "<<time<<"[ms]"<< std::endl;
+    //std::cout<< "Time: "<<time<<"[ms]"<< std::endl;
+    return time;
 }

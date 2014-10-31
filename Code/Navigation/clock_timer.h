@@ -23,7 +23,7 @@
 class clock_timer{
 public:
     void start_timer(void );
-    void stop_timer(void );
+    float stop_timer(void );
 protected:
     float time;
     long double temp_clock;
