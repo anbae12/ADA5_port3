@@ -55,66 +55,11 @@ dijkstras::dijkstras(std::string from, Graph &graph){
     
     
     
-   /* //////not working properly//////
-    while (!graph.vertices[from]->edge.empty()) {
-        dijkstrasQueue_1.push(graph.vertices[from]->edge.top());
-        graph.vertices[from]->edge.pop();
-    }
-    //////////////////////////// 
-    
-    */
-    
-    
-    /*
-    while (!dijkstrasQueue_1.empty()) {
-        from = dijkstrasQueue_1.top().first->element;
-        
-        std::cout<<"#1: "<<from<<std::endl;
-        //graph.vertices[fromWhile]->from=fromWhile;
-        lateXGenerator.AddVertex(from);
-        
-        
-        while (!graph.vertices[from]->edge.empty()) {
-            
-            if (!graph.vertices[from]->edge.top().first->known) {
-                std::string To = graph.vertices[from]->edge.top().first->element;
-                std::cout<<"#2: "<<To<<std::endl;
-                
-                if (graph.vertices[To]->known == false) {
-                    dijkstrasQueue_2.push(graph.vertices[To]->edge.top());
-                }
-                
-                int distTo = graph.vertices[from]->edge.top().second;
-                int distFrom= graph.vertices[from]->dist;
-                int distSum = distTo+distFrom;
-                distTo = distSum;
-                
-                if (distTo < graph.vertices[To]->edge.top().second) {
-                    graph.vertices[To]->dist = distTo;
-                    graph.vertices[To]->from=from; // used for setting depature town.
-                    graph.vertices[To]->known=true;
-                }
-                
-                
-                lateXGenerator.AddEdge(from, To, distSum);
-                graph.vertices[from]->edge.pop();
-            
-            
-            } else
-                break;
-        }
-
-        dijkstrasQueue_1.pop();
-    }
-    
-    */
-    
-    
-    
+ 
     
     
     std::ofstream myfile;
-    myfile.open ("/Users/anderslaunerbaek/Documents/example.txt");
+    myfile.open ("/Users/anderslaunerbaek/Documents/example.dot");
     //myfile.open ("example.txt");
     myfile << lateXGenerator.getOutput();
     myfile.close();
