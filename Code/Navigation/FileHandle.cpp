@@ -16,7 +16,7 @@ FileHandle::FileHandle(std::string filename) {
 }
 
 std::vector<VertexTemp> FileHandle::doParse(Graph &graph){
-	while(!fin.eof()){
+	while(fin.peek() != -1){
 		// Ignore starting { in line
 		fin.seekg (1, std::ios::cur);
 

@@ -11,7 +11,7 @@ Graph::Graph() {
 }
 
 void Graph::addVertex(std::string value) {
-	if(vertices.find(value) != vertices.end() && printException==true){
+	if(vertices.find(value) != vertices.end()){
 		throw new std::string("Element \"" + value + "\" already exists!");
 	}
 	vertices[value] = new Vertex(value);

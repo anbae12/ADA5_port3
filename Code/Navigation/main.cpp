@@ -15,10 +15,6 @@
 
 
 
-
-
-
-
 int main(int argc, const char * argv[]) {
 
 	clock_timer timerrecord;
@@ -27,11 +23,16 @@ int main(int argc, const char * argv[]) {
 	timerrecord.start_timer();
     
 	
-    //FileHandle filehandle("../../data.raw");
-    FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
+    FileHandle filehandle("../../data.raw");
+   // FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
 
 	
 	filehandle.doParse(graph);
+	//for(auto it = graph.vertices["Bylderup_Bov"]->edge.begin(); it != graph.vertices["Bylderup_Bov"]->edge.end(); ++it ){
+	//	std::cout << it->first->element << std::endl;
+	//}
+	//std::string it = graph.vertices["Bylderup_Bov"]->edge[0].first->element;
+	//std::cout << it << std::endl;
 /*
 	std::ofstream myfile;
 	myfile.open ("example.txt");

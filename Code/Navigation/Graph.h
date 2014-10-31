@@ -44,8 +44,6 @@ public:
 	std::string printFrom(std::string from);
     //void addToQueue(std::string From, std::string To, int cost);
     pqueue pq;
-    bool printException;
-    
 };
 
 #endif /* GRAPH_H_ */
