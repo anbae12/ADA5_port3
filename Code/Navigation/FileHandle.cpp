@@ -8,6 +8,7 @@
 #include "FileHandle.h"
 
 FileHandle::FileHandle(std::string filename) {
+	printException = false;
 	fin.open(filename);
 	if (!fin.good()){
 		std::cout << "Unable to open file";
@@ -15,7 +16,7 @@ FileHandle::FileHandle(std::string filename) {
 	}
 }
 
-std::vector<VertexTemp> FileHandle::doParse(Graph &graph){
+void FileHandle::doParse(Graph &graph){
 	while(fin.peek() != -1){
 		// Ignore starting { in line
 		fin.seekg (1, std::ios::cur);
@@ -29,7 +30,9 @@ std::vector<VertexTemp> FileHandle::doParse(Graph &graph){
 		try {
 			graph.addVertex(from);
 		} catch (std::string *e){
-			std::cout << "exception: " << *e << std::endl;
+			if(printException){
+				std::cout << "exception: " << *e << std::endl;
+			}
 		}
 
 		while(std::getline(lineStream,to,',') && std::getline(lineStream,cost,',')){
@@ -45,12 +48,14 @@ std::vector<VertexTemp> FileHandle::doParse(Graph &graph){
 			try {
 				graph.addVertex(to);
 			} catch (std::string *e){
-				std::cout << "exception: " << *e << std::endl;
+				if(printException){
+					std::cout << "exception: " << *e << std::endl;
+				}
 			}
 			graph.addEdge(from, to, iCost);
 		}
 	}
-	return vertices;
+	//return vertices;
 }
 
 std::string FileHandle::ltrim(std::string s){
@@ -71,9 +76,10 @@ std::string FileHandle::getFrom(std::stringstream &stream){
 void FileHandle::trim(std::string &s){
 	s = ltrim(rtrim(s));
 }
-
+/*
 VertexTemp::VertexTemp(std::string From, std::string To, int Cost){
 	from = From;
 	to = To;
 	cost = Cost;
 }
+*/

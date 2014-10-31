@@ -24,35 +24,18 @@ void Graph::addEdge(std::string From, std::string To, int Cost) {
 	if(vertices.find(To) == vertices.end())
 		throw new std::string("To \"" + To + "\" does not exist!");
 
-	Vertex* from = vertices.find(From)->second; ////////////////////////////// SKAL BEGGE VÆRE SECOND??
+	Vertex* from = vertices.find(From)->second;
 	Vertex* to = vertices.find(To)->second;
-	from->edge.push_back(std::make_pair(to, Cost));
-    
-    
-    
-    //pq.push(std::make_pair(i->first->element, Cost));
-    //pq.push(std::make_pair(to, Cost));
-    //Vertex * fromP = vertices.find(from)->second;
-    //auto i = from->edge.begin();
-    //while (i != from->edge.end()) {
-    //    pq.push(std::make_pair(to, Cost));
-    //    i++;
-   // }
-    //pq.push(std::make_pair(i->first->element, Cost));
 
-
- 
-        //std::cout << "From \"" + from + "\" to: " << i->first->element << std::endl;
-        /////////////////
-        // std::cout<<"#1to: "<< to<<" pris: "<<Cost<<std::endl;
-        //pq.push(std::make_pair(i->first->element, Cost));
+	from->edge.push(std::make_pair(to,Cost));
+	//from->edge.push_back(std::make_pair(to, Cost));
 
 }
 
 std::string Graph::printVertices(){
 	LateXGenerator lateXGenerator;
 	int m = 0;
-
+/*
 	for(Vertices::iterator i = vertices.begin(); i != vertices.end() && m++ < 100; ++i){
 		lateXGenerator.AddVertex(i->first);
 		std::cout << "Edge from: " <<  i->first;
@@ -62,6 +45,7 @@ std::string Graph::printVertices(){
 		}
 		std::cout << std::endl;
 	}
+	*/
 	return lateXGenerator.getOutput();
 }
 
@@ -71,10 +55,11 @@ std::string Graph::printFrom(std::string from){
 	Vertex * fromP = vertices.find(from)->second;
 
 	lateXGenerator.AddVertex(from);
-
+/*
 	for(auto i = fromP->edge.begin(); i != fromP->edge.end(); ++i){
 		std::cout << "From \"" + from + "\" to: " << i->first->element << std::endl;
 		lateXGenerator.AddEdge(from,i->first->element, i->second);
 	}
+	*/
 	return lateXGenerator.getOutput();
 }

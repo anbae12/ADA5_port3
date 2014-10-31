@@ -16,15 +16,9 @@
 #ifndef GRAPH_H_
 #define GRAPH_H_
 
-struct Comp{
-    bool operator()(const std::pair<Vertex*, int> &a ,const std::pair<Vertex*, int> &b ) const {
-        return b.second < a.second;
-    }
-};
-
 //using pqueue = std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp>;
 
-using pqueue = std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp>;
+//using pqueue = std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp>;
 
 class Graph {
 	typedef std::map <std::string, Vertex*> Vertices;
@@ -43,7 +37,7 @@ public:
 	std::string printVertices();
 	std::string printFrom(std::string from);
     //void addToQueue(std::string From, std::string To, int cost);
-    pqueue pq;
+   // pqueue pq;
 };
 
 #endif /* GRAPH_H_ */

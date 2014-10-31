@@ -14,7 +14,7 @@
 #include <algorithm>
 #include "Vertex.h"
 #include "Graph.h"
-
+/*
 class VertexTemp {
 public:
 	VertexTemp(std::string From, std::string To, int cost);
@@ -22,18 +22,20 @@ public:
 	std::string to;
 	int cost;
 };
+*/
 class FileHandle {
 public:
 	FileHandle(std::string filename);
-    std::vector<VertexTemp> doParse(Graph &graph);
+    void doParse(Graph &graph);
 	std::string rtrim(std::string s);
 	std::string ltrim(std::string s);
 	std::string getFrom(std::stringstream &stream);
 	void trim(std::string &);
 	std::string to, cost;
+	bool printException;
 private:
 	std::string line;
-	std::vector<VertexTemp> vertices;
+	//std::vector<VertexTemp> vertices;
 	std::ifstream fin;
 };
 
