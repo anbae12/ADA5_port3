@@ -52,11 +52,16 @@ int main(int argc, const char * argv[]) {
     graph.vertices.find("Nysted")->second.pop();
     graph.printFrom("Nysted");
     */
+	/*
 	std::cout << "output: " << graph.vertices["Odense"]->edge.top().first->element;
 	std::cout << "output: " << graph.vertices["Odense"]->edge.top().second << std::endl;
 	graph.vertices["Odense"]->edge.pop();
 	std::cout << "output: " << graph.vertices["Odense"]->edge.top().first->element;
 	std::cout << "output: " << graph.vertices["Odense"]->edge.top().second << std::endl;
+	*/
+	std::cout << "output: " << graph.vertices["Odense"]->edge.top().first->element << std::endl;
+	//auto it = graph.vertices["Odense"]->edge.get_container();
+	graph.printFrom("Allinge");
 	std::cout << "Hello, World!\n";
 	timerrecord.stop_timer();
 

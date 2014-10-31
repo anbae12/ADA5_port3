@@ -14,6 +14,12 @@
 #ifndef VERTEX_H_
 #define VERTEX_H_
 
+template <class Container>
+class Adapter : public Container {
+public:
+    typedef typename Container::container_type container_type;
+    container_type &get_container() { return this->c; }
+};
 
 class Vertex;
 struct Comp {
@@ -22,7 +28,7 @@ struct Comp {
 	}
 };
 
-typedef std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp> Edge;
+//typedef std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp> Edge;
 class Vertex {
 
 	//typedef std::vector<std::pair <Vertex*, int> > Edge;
@@ -30,7 +36,12 @@ class Vertex {
 public:
 	Vertex(std::string value);
 	std::string element;
-	Edge edge;
+	//Edge edge;
+
+    typedef std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp> C;
+    typedef Adapter<C> Container;
+
+    Container edge;
 };
 
 #endif /* VERTEX_H_ */

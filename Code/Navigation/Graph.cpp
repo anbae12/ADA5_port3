@@ -50,7 +50,7 @@ std::string Graph::printVertices(){
 }
 
 
-std::string Graph::printFrom(std::string from){
+std::string Graph::printFromDot(std::string from){
 	LateXGenerator lateXGenerator;
 	Vertex * fromP = vertices.find(from)->second;
 
@@ -62,4 +62,15 @@ std::string Graph::printFrom(std::string from){
 	}
 	*/
 	return lateXGenerator.getOutput();
+}
+
+
+void Graph::printFrom(std::string from){
+	if(vertices.find(from) == vertices.end()){
+		std::cout <<  "City \"" + from +  "\" not found" << std::endl;
+		return ;
+	}
+	for(auto it = vertices[from]->edge.get_container().begin() ; it != vertices[from]->edge.get_container().end(); ++it ){
+		std::cout << "To: " << it->first->element << " Cost: " <<it->second  << std::endl;
+	}
 }

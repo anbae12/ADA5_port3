@@ -28,16 +28,13 @@ class Graph {
     
 
 public:
-    
-    //std::priority_queue<std::pair<Vertex*, int>, std::vector<Vertex*, int> >, MyComparator> queue;
 	Graph();
 	std::map <std::string, Vertex*> vertices;
 	void addVertex(std::string value);
 	void addEdge(std::string From, std::string To, int cost);
 	std::string printVertices();
-	std::string printFrom(std::string from);
-    //void addToQueue(std::string From, std::string To, int cost);
-   // pqueue pq;
+	std::string printFromDot(std::string from);
+	void printFrom(std::string from);
 };
 
 #endif /* GRAPH_H_ */
