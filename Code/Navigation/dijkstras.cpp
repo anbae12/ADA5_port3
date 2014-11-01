@@ -2,19 +2,20 @@
 //  dijkstras.cpp
 //  Navigation
 //
-//  Created by Anders Launer Bæk on 31/10/14.
-//  Copyright (c) 2014 Anders Launer Bæk. All rights reserved.
+//  Created by Anders Launer Baek on 31/10/14.
+//  Copyright (c) 2014 Anders Launer Baek. All rights reserved.
 //
 
 #include "dijkstras.h"
 
-int dijkstras::path(Vertex* from, Vertex* arrival){
+int dijkstras::path(Vertex* from, Vertex* arrival, Graph &graph){
     if (arrival->element == from->element) {
-        std::cout<<"YESS MAN: "<<"missing pris..." <<std::endl;
+        //std::cout<<"YESS MAN: "<<"missing pris..." <<std::endl;
+        std::cout<<""<<std::endl;
         return arrival->dist;
     }
-    
-    return path(from, arrival->from);
+    std::cout<<" <- "<< arrival->from->element;
+    return path(from, arrival->from, graph);
 }
 
 dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
@@ -25,6 +26,7 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
         exit(0);
     }
     std::string depTown = from;
+    std::string arTown = to;
     graph.vertices[from]->dist=0;
     //graph.vertices[from]->from = graph.vertices[from]; // used for setting depature town.
     lateXGenerator.AddVertex(from);
@@ -55,8 +57,7 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
     
     timerrecord.start_timer();
     
-    int price = graph.vertices[to]->dist;
-    
+    int price = graph.vertices[arTown]->dist;
     auto time = timerrecord.stop_timer();
     
     std::cout <<"---------------------"<<std::endl;
@@ -66,6 +67,7 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
     std::cout <<"Duration:  "<< time <<" [ms]"<<std::endl;
     std::cout <<"---------------------"<<std::endl;
     
+    path(graph.vertices[depTown], graph.vertices[arTown],graph);
     
     
     std::ofstream myfile;
