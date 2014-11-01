@@ -1,11 +1,3 @@
-//
-//  dijkstras.h
-//  Navigation
-//
-//  Created by Anders Launer Baek on 31/10/14.
-//  Copyright (c) 2014 Anders Launer Baek. All rights reserved.
-//
-
 #ifndef __Navigation__dijkstras__
 #define __Navigation__dijkstras__
 
