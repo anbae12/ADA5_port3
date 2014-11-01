@@ -1,19 +1,13 @@
-/*
- * Vertex.h
- *
- *  Created on: Oct 26, 2014
- *      Author: exchizz
- */
 #include <map>
 #include <string>
 #include <vector>
 #include <iostream>
 #include <queue>
 
-
 #ifndef VERTEX_H_
 #define VERTEX_H_
 
+//Inherents from priority_queue and adds get_container which returns the underlying container
 template <class Container>
 class Adapter : public Container {
 public:
@@ -22,24 +16,21 @@ public:
 };
 
 class Vertex;
+
+//Comp used to compare values in prority_queue
 struct Comp {
 	bool operator()(const std::pair<Vertex*, int> &a ,const std::pair<Vertex*, int> &b ) const {
 		return b.second < a.second;
 	}
 };
 
-//typedef std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp> Edge;
 class Vertex {
-
-	//typedef std::vector<std::pair <Vertex*, int> > Edge;
+    typedef std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp> C;
+    typedef Adapter<C> Container;
 
 public:
 	Vertex(std::string value);
 	std::string element;
-	//Edge edge;
-
-    typedef std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp> C;
-    typedef Adapter<C> Container;
 
     Container edge;
     bool known;

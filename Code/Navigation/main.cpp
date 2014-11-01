@@ -2,7 +2,7 @@
 //  main.cpp
 //  Navigation
 //
-//  Created by Mathias, Kiddi og Anders.
+//  Created by Mathias, Keerthikan og Anders.
 //
 
 #include "Vertex.h"
@@ -15,8 +15,9 @@
 
 
 
-int main(int argc, const char * argv[]) {
-	
+int main() {
+
+	//Create graph
     Graph graph;
     
     //////////// Question #1 ////////////
@@ -31,9 +32,7 @@ int main(int argc, const char * argv[]) {
     //////////// Question #3 ////////////
     //Tid mangler / path;
     dijkstras di("Aalborg","København", graph);
-   
-    
-    
+
     
     // path di.path(graph.vertices["A"] ,graph.vertices["E"]);
     
