@@ -17,22 +17,20 @@
 
 int main(int argc, const char * argv[]) {
     Graph graph;
-    std::string toto;
-    std::string fromfrom;
+    std::string toTown;
+    std::string fromTown;
     std::cout<<"Departure town: ";
-    std::cin>>fromfrom;
+    std::cin>>fromTown;
     std::cout<<"Arrival town:   ";
-    std::cin>>toto;
-    
-    
+    std::cin>>toTown;
 //////////// Question #1 ////////////
     //FileHandle filehandle("../../data.raw");
     FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
 	filehandle.doParse(graph);
 //////////// Question #2 ////////////
-    graph.printFrom(fromfrom);
+    graph.printFrom(fromTown);
 //////////// Question #3 ////////////
     //Tid mangler / path;
-    dijkstras di(fromfrom,toto, graph);
+    dijkstras di(fromTown,toTown, graph);
     return 0;
 }

@@ -7,28 +7,35 @@
 //
 
 #include "dijkstras.h"
+void dijkstras::printPath(std::string to){
+    while (!townNames.empty()) {
+        std::cout <<townNames.front()<<" -> ";
+        townNames.pop_front();
+    }
+    std::cout <<to<<std::endl;
+}
 
 int dijkstras::path(Vertex* from, Vertex* arrival, Graph &graph){
     if (arrival->element == from->element) {
-        //std::cout<<"YESS MAN: "<<"missing pris..." <<std::endl;
-        std::cout<<""<<std::endl;
         return arrival->dist;
     }
-    std::cout<<" <- "<< arrival->from->element;
+    townNames.push_front(arrival->from->element);
     return path(from, arrival->from, graph);
 }
 
 dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
     LateXGenerator lateXGenerator;
     clock_timer timerrecord;
+    
     if (graph.vertices.find(from) == graph.vertices.end()) {
         std::cout<<"Not found: "<<from<<std::endl;
         exit(0);
     }
     std::string depTown = from;
     std::string arTown = to;
+    
     graph.vertices[from]->dist=0;
-    //graph.vertices[from]->from = graph.vertices[from]; // used for setting depature town.
+    
     lateXGenerator.AddVertex(from);
     
     dijkstrasQueue.push(graph.vertices[from]);
@@ -54,21 +61,18 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
         graph.vertices[from]->known=true;
     }
     
-    
     timerrecord.start_timer();
-    
-    int price = graph.vertices[arTown]->dist;
-    auto time = timerrecord.stop_timer();
+    path(graph.vertices[depTown], graph.vertices[arTown],graph);
+    timerrecord.stop_timer();
     
     std::cout <<"---------------------"<<std::endl;
     std::cout <<"Departure: "<<depTown<<std::endl;
     std::cout <<"Arrival:   "<<to<<std::endl;
-    std::cout <<"Ticket:    "<< price <<",- DKK"<<std::endl;
-    std::cout <<"Duration:  "<< time <<" [ms]"<<std::endl;
+    std::cout <<"Shifts:    "<<townNames.size()-1<<": ";
+    printPath(arTown);
+    std::cout <<"Ticket:    "<< graph.vertices[arTown]->dist <<",- DKK"<<std::endl;
+    std::cout <<"Duration:  "<< timerrecord.timetime <<" [ms]"<<std::endl;
     std::cout <<"---------------------"<<std::endl;
-    
-    path(graph.vertices[depTown], graph.vertices[arTown],graph);
-    
     
     std::ofstream myfile;
     myfile.open ("/Users/anderslaunerbaek/Documents/example.dot");

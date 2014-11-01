@@ -23,17 +23,11 @@
 class clock_timer{
 public:
     void start_timer(void );
-    float stop_timer(void );
+    void stop_timer(void );
+    std::string timetime;
 protected:
     float time;
     long double temp_clock;
-    
-private:
-    
-
-
 };
-
-
 
 #endif /* defined(__timer_clock__clock_timer__) */
