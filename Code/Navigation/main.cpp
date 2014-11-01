@@ -15,28 +15,25 @@
 
 
 
-int main() {
 
-	//Create graph
+int main(int argc, const char * argv[]) {
     Graph graph;
+    std::string toto;
+    std::string fromfrom;
+    std::cout<<"Departure town: ";
+    std::cin>>fromfrom;
+    std::cout<<"Arrival town:   ";
+    std::cin>>toto;
     
-    //////////// Question #1 ////////////
+    
+//////////// Question #1 ////////////
     //FileHandle filehandle("../../data.raw");
     FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
 	filehandle.doParse(graph);
-	
-    //////////// Question #2 ////////////
-    //graph.printFrom("Allinge");
-    
-    
-    //////////// Question #3 ////////////
+//////////// Question #2 ////////////
+    graph.printFrom(fromfrom);
+//////////// Question #3 ////////////
     //Tid mangler / path;
-    dijkstras di("Aalborg","København", graph);
-
-    
-    // path di.path(graph.vertices["A"] ,graph.vertices["E"]);
-    
-    
-
-	return 0;
+    dijkstras di(fromfrom,toto, graph);
+    return 0;
 }

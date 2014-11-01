@@ -2,8 +2,8 @@
 //  dijkstras.h
 //  Navigation
 //
-//  Created by Anders Launer Bæk on 31/10/14.
-//  Copyright (c) 2014 Anders Launer Bæk. All rights reserved.
+//  Created by Anders Launer Baek on 31/10/14.
+//  Copyright (c) 2014 Anders Launer Baek. All rights reserved.
 //
 
 #ifndef __Navigation__dijkstras__
@@ -22,20 +22,14 @@ struct Comp1 {
     }
 };
 
-
 class dijkstras{
     typedef std::priority_queue<Vertex*, std::vector<Vertex* >, Comp1> diQueue;
 
 public:
     dijkstras(std::string, std::string, Graph&);
     void getDist();
-    int path(Vertex*, Vertex*);
+    int path(Vertex*, Vertex*, Graph&);
     diQueue dijkstrasQueue;
- 
-    
-private:
-    int distSum;
- 
 };
 #endif /* defined(__Navigation__dijkstras__) */
 
