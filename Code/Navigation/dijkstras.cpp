@@ -1,11 +1,3 @@
-//
-//  dijkstras.cpp
-//  Navigation
-//
-//  Created by Anders Launer Baek on 31/10/14.
-//  Copyright (c) 2014 Anders Launer Baek. All rights reserved.
-//
-
 #include "dijkstras.h"
 void dijkstras::printPath(std::string to){
     while (!townNames.empty()) {

@@ -1,14 +1,4 @@
-/*
- * Graph.cpp
- *
- *  Created on: Oct 25, 2014
- *      Author: exchizz
- */
-
 #include "Graph.h"
-Graph::Graph() {
-	// TODO Auto-generated constructor stub
-}
 
 void Graph::addVertex(std::string value) {
 	if(vertices.find(value) != vertices.end()){
@@ -28,11 +18,6 @@ void Graph::addEdge(std::string From, std::string To, int Cost) {
 	Vertex* to = vertices.find(To)->second;
 
 	from->edge.push(std::make_pair(to,Cost));
-	//from->edge.push_back(std::make_pair(to, Cost));
-    
-    
-    
-
 }
 
 std::string Graph::printVertices(){

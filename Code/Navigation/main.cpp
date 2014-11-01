@@ -2,7 +2,7 @@
 //  main.cpp
 //  Navigation
 //
-//  Created by Mathias, Kiddi og Anders.
+//  Created by Mathias, Keerthikan og Anders.
 //
 
 #include "Vertex.h"
@@ -12,6 +12,7 @@
 #include <fstream>
 #include <queue>
 #include <vector>
+
 
 
 

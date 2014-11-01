@@ -1,10 +1,3 @@
-/*
- * FileHandle.h
- *
- *  Created on: Oct 24, 2014
- *      Author: exchizz
- */
-
 #ifndef FILEHANDLE_H_
 #define FILEHANDLE_H_
 #include <fstream>
@@ -14,15 +7,8 @@
 #include <algorithm>
 #include "Vertex.h"
 #include "Graph.h"
-/*
-class VertexTemp {
-public:
-	VertexTemp(std::string From, std::string To, int cost);
-	std::string from;
-	std::string to;
-	int cost;
-};
-*/
+
+
 class FileHandle {
 public:
 	FileHandle(std::string filename);

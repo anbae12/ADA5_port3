@@ -1,10 +1,3 @@
-/*
- * LateXGenerator.h
- *
- *  Created on: Oct 26, 2014
- *      Author: exchizz
- */
-
 #include <string>
 #ifndef LATEXGENERATOR_H_
 #define LATEXGENERATOR_H_

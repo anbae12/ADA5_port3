@@ -1,10 +1,3 @@
-/*
- * FileHandle.cpp
- *
- *  Created on: Oct 24, 2014
- *      Author: exchizz
- */
-
 #include "FileHandle.h"
 
 FileHandle::FileHandle(std::string filename) {
@@ -27,6 +20,7 @@ void FileHandle::doParse(Graph &graph){
 		std::stringstream lineStream(line);
 
 		std::string from = getFrom(lineStream);
+		//Add vertex, else catch exception
 		try {
 			graph.addVertex(from);
 		} catch (std::string *e){
@@ -36,15 +30,14 @@ void FileHandle::doParse(Graph &graph){
 		}
 
 		while(std::getline(lineStream,to,',') && std::getline(lineStream,cost,',')){
-			//Remove leading and trailing whitespaces.(by ref)
+			//Remove leading and trailing whitespaces.
 			trim(to);
 
-			//convert to integer
+			//Convert to integer
 			int iCost;
 			std::istringstream ( cost ) >>  iCost;
 
-			//Create object and push to vector - this might be priority_queue later
-			//vertices.push_back(VertexTemp(from, city, iCost));
+			//Add vertex if not existing, else catch exception
 			try {
 				graph.addVertex(to);
 			} catch (std::string *e){
@@ -52,34 +45,28 @@ void FileHandle::doParse(Graph &graph){
 					std::cout << "exception: " << *e << std::endl;
 				}
 			}
+			//Add edge
 			graph.addEdge(from, to, iCost);
 		}
 	}
-	//return vertices;
 }
-
+//Trim left side of string
 std::string FileHandle::ltrim(std::string s){
 	s.erase(s.begin(),find_if_not(s.begin(),s.end(),[](int c){return isspace(c);}));
 	return s;
 }
+//Trim right side of string
 std::string FileHandle::rtrim(std::string s){
 	s.erase(find_if_not(s.rbegin(),s.rend(),[](int c){return isspace(c);}).base(), s.end());
 	return s;
 }
-std::string FileHandle::getFrom(std::stringstream &stream){
-	std::string from;
-	std::getline(stream,from,',');
-
-	return from;
-}
-
+//Trim right and left
 void FileHandle::trim(std::string &s){
 	s = ltrim(rtrim(s));
 }
-/*
-VertexTemp::VertexTemp(std::string From, std::string To, int Cost){
-	from = From;
-	to = To;
-	cost = Cost;
+//Extracts "from", from the line
+std::string FileHandle::getFrom(std::stringstream &stream){
+	std::string from;
+	std::getline(stream,from,',');
+	return from;
 }
-*/
