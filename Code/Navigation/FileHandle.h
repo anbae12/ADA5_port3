@@ -21,10 +21,7 @@ public:
 	bool printException;
 private:
 	std::string line;
-	//std::vector<VertexTemp> vertices;
 	std::ifstream fin;
 };
-
-
 
 #endif /* FILEHANDLE_H_ */

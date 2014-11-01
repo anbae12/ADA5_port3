@@ -18,12 +18,12 @@
 
 int main(int argc, const char * argv[]) {
     Graph graph;
-    std::string toTown;
-    std::string fromTown;
-    std::cout<<"Departure town: ";
+    std::string toTown="Odder";
+    std::string fromTown="København";
+    /*std::cout<<"Departure town: ";
     std::cin>>fromTown;
     std::cout<<"Arrival town:   ";
-    std::cin>>toTown;
+    std::cin>>toTown;*/
 //////////// Question #1 ////////////
     //FileHandle filehandle("../../data.raw");
     FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");

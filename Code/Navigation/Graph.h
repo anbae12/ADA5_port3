@@ -15,7 +15,6 @@ public:
 	std::map <std::string, Vertex*> vertices;
 	void addVertex(std::string value);
 	void addEdge(std::string From, std::string To, int cost);
-	std::string printVertices();
 	std::string printFromDot(std::string from);
 	void printFrom(std::string from);
 };

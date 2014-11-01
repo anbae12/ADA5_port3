@@ -27,11 +27,9 @@ struct Comp {
 class Vertex {
     typedef std::priority_queue<std::pair<Vertex*, int>, std::vector<std::pair<Vertex*, int> >, Comp> C;
     typedef Adapter<C> Container;
-
 public:
 	Vertex(std::string value);
 	std::string element;
-
     Container edge;
     bool known;
     int dist;

@@ -1,4 +1,5 @@
 #include "dijkstras.h"
+
 void dijkstras::printPath(std::string to){
     while (!townNames.empty()) {
         std::cout <<townNames.front()<<" -> ";
@@ -63,7 +64,7 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
     std::cout <<"Shifts:    "<<townNames.size()-1<<": ";
     printPath(arTown);
     std::cout <<"Ticket:    "<< graph.vertices[arTown]->dist <<",- DKK"<<std::endl;
-    std::cout <<"Duration:  "<< timerrecord.timetime <<" [ms]"<<std::endl;
+    std::cout <<"Duration:  "<< timerrecord.duration <<" [ms]"<<std::endl;
     std::cout <<"---------------------"<<std::endl;
     
     std::ofstream myfile;
@@ -71,4 +72,4 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
     //myfile.open ("example.txt");
     myfile << lateXGenerator.getOutput();
     myfile.close();
-}
+}; 

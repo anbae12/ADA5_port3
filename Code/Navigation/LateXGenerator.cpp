@@ -12,7 +12,6 @@ LateXGenerator::LateXGenerator() {
 	output = "	digraph G{";
 }
 
-
 void LateXGenerator::AddVertex(std::string name){
 	/*
 	digraph G{

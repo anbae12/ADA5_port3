@@ -14,7 +14,4 @@ Vertex::Vertex(std::string value) {
     known = false;
     dist = std::numeric_limits<int>::max();
     from=NULL;  // Used in dijkstras
-    
 }
-
-
