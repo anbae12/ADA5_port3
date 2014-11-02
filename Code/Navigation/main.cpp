@@ -13,9 +13,6 @@
 #include <queue>
 #include <vector>
 
-
-
-
 int main(int argc, const char * argv[]) {
     Graph graph;
     std::string toTown;
