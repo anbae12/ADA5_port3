@@ -9,7 +9,7 @@ FileHandle::FileHandle(std::string filename) {
 	}
 }
 
-void FileHandle::doParse(Graph &graph){
+void FileHandle::doParse(std::shared_ptr<Graph> &graph){
 	while(fin.peek() != -1){
 		// Ignore starting { in line
 		fin.seekg (1, std::ios::cur);
@@ -22,7 +22,7 @@ void FileHandle::doParse(Graph &graph){
 		std::string from = getFrom(lineStream);
 		//Add vertex, else catch exception
 		try {
-			graph.addVertex(from);
+			graph->addVertex(from);
 		} catch (std::string *e){
 			if(printException){
 				std::cout << "exception: " << *e << std::endl;
@@ -39,14 +39,14 @@ void FileHandle::doParse(Graph &graph){
 
 			//Add vertex if not existing, else catch exception
 			try {
-				graph.addVertex(to);
+				graph->addVertex(to);
 			} catch (std::string *e){
 				if(printException){
 					std::cout << "exception: " << *e << std::endl;
 				}
 			}
 			//Add edge
-			graph.addEdge(from, to, iCost);
+			graph->addEdge(from, to, iCost);
 		}
 	}
 }

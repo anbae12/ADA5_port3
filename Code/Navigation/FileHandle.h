@@ -7,12 +7,13 @@
 #include <algorithm>
 #include "Vertex.h"
 #include "Graph.h"
+#include <memory>
 
 
 class FileHandle {
 public:
 	FileHandle(std::string filename);
-    void doParse(Graph &graph);
+    void doParse(std::shared_ptr<Graph> &graph);
 	std::string rtrim(std::string s);
 	std::string ltrim(std::string s);
 	std::string getFrom(std::stringstream &stream);
