@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
     FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
 	filehandle.doParse(graph);
 //////////// Question #2 ////////////
-    graph.printFrom(fromTown);
+    //graph.printFrom(fromTown);
 //////////// Question #3 ////////////
     //Tid mangler / path;
     dijkstras di(fromTown,toTown, graph);
