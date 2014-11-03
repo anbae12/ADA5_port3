@@ -1,19 +1,11 @@
 #include "dijkstras.h"
 
-void dijkstras::printPath(std::string to){
-    while (!townNames.empty()) {
-        std::cout <<townNames.front()<<" -> ";
-        townNames.pop_front();
+std::pair<std::string, int> dijkstras::path(Vertex* from, Vertex* arrival){
+   if (arrival->element == from->element) {
+	   return std::make_pair(arrival->element, 0);
     }
-    std::cout <<to<<std::endl;
-}
-
-int dijkstras::path(Vertex* from, Vertex* arrival, Graph &graph){
-    if (arrival->element == from->element) {
-        return arrival->dist;
-    }
-    townNames.push_front(arrival->from->element);
-    return path(from, arrival->from, graph);
+   auto val = path(from, arrival->from);
+   return std::make_pair(val.first + " -> " + arrival->element, val.second+1 );
 }
 
 dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
@@ -45,7 +37,6 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
             if ( edgeplusnode <  graph.vertices[to]->dist) {
                 graph.vertices[to]->dist=edgeplusnode;
                 graph.vertices[to]->from=graph.vertices[from];
-                //std::cout<<graph.vertices[from]->element<<std::endl;
             }
             dijkstrasQueue.push(graph.vertices[from]->edge.top().first );
             graph.vertices[from]->edge.pop();
@@ -55,14 +46,13 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
     }
     
     timerrecord.start_timer();
-    path(graph.vertices[depTown], graph.vertices[arTown],graph);
+    auto route = path(graph.vertices[depTown], graph.vertices[arTown]);
     timerrecord.stop_timer();
     
     std::cout <<"---------------------"<<std::endl;
     std::cout <<"Departure: "<<depTown<<std::endl;
     std::cout <<"Arrival:   "<<to<<std::endl;
-    std::cout <<"Shifts:    "<<townNames.size()-1<<": ";
-    printPath(arTown);
+    std::cout <<"Shifts:    "<< route.second <<": " << route.first << std::endl;
     std::cout <<"Ticket:    "<< graph.vertices[arTown]->dist <<",- DKK"<<std::endl;
     std::cout <<"Duration:  "<< timerrecord.duration <<" [ms]"<<std::endl;
     std::cout <<"---------------------"<<std::endl;

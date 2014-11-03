@@ -18,13 +18,10 @@ struct Comp1 {
 
 class dijkstras{
     typedef std::priority_queue<Vertex*, std::vector<Vertex* >, Comp1> diQueue;
-    typedef std::deque<std::string> Names;
 public:
     dijkstras(std::string, std::string, Graph&);
-    void printPath(std::string);
-    int path(Vertex*, Vertex*, Graph&);
+    std::pair<std::string, int> path(Vertex*, Vertex*);
     diQueue dijkstrasQueue;
-    Names townNames;
 };
 
 #endif /* defined(__Navigation__dijkstras__) */

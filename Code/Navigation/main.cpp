@@ -12,9 +12,11 @@
 #include <fstream>
 #include <queue>
 #include <vector>
+#include <memory>
 
 int main(int argc, const char * argv[]) {
     Graph graph;
+
     std::string toTown;
     std::string fromTown;
     std::cout<<"Departure town: ";
@@ -22,8 +24,8 @@ int main(int argc, const char * argv[]) {
     std::cout<<"Arrival town:   ";
     std::cin>>toTown;
 //////////// Question #1 ////////////
-    //FileHandle filehandle("../../data.raw");
-    FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
+    FileHandle filehandle("../../data.raw");
+    //FileHandle filehandle("/Users/anderslaunerbaek/Documents/data.raw");
 	filehandle.doParse(graph);
 //////////// Question #2 ////////////
     graph.printFrom(fromTown);
