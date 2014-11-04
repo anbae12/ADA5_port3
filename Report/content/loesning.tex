@@ -99,40 +99,68 @@ DijkResult Run(from, to){
 
 \section{Examples and Benchmarks}
 \subsection{Ten different from and to cities}
-\begin{lstlisting}
+Table \ref{tb:fromtoten} shows planning duration from different from and to-cities.
+
+\begin{figure}[th!]
+\centering
+\begin{tabular}{l|l|l}
+From-city & To-city & Duration \\\hline
+Odense & Aalborg & 60,752 [ms] \\
+Næstved & Odense & 62,742 [ms] \\
+Balle & Janderup & 61,288 [ms] \\
+Beder & Glumsø & 63,465 [ms] \\
+Blokhus & Glostrup & 62,664 [ms] \\
+Borre & Vadum & 63,448 [ms] \\
+Bredebro & Gistrup & 63,218 [ms] \\
+Bælum & Hornsyld & 62,492 [ms] \\
+Fakse & Bredebro & 61,774 [ms] \\
+Farum & Hadsten & 61,869 [ms] \\\hline
+Average runtime && 62,37 [ms]
+\end{tabular}
+\captionsetup{type=table}
+\caption[tekst i indholdsfortegnelsen]{Duration for ten different from and to-cities.}
+\label{tb:fromtoten}
+\end{figure}
 
 
-CONSOLE OUTPUT
 
-\end{lstlisting}
-
-
-\subsection{Odense to Aalborg}
-\begin{lstlisting}
-
-
-CONSOLE OUTPUT
-
-\end{lstlisting}
-
-	
-\subsection{Odense to Holstebro}
-
-\begin{lstlisting}
+\subsection{Test from from-city to to-cities}
+Table \ref{tb:fromonetocities} shows planning duration from one from-city to three differnent to-cities. And as you can see in the table, after the first planning the next planning durations are fairly low.
+\begin{figure}[th!]
+\centering
+\begin{tabular}{l|l|l}
+From-city & To-city & Duration \\\hline
+Odense & Næstved & 62,802 [ms] \\
+Odense & København & 0,005 [ms] \\
+Odense & Vadum & 0,005 [ms]  
+\end{tabular}
+\captionsetup{type=table}
+\caption[tekst i indholdsfortegnelsen]{Duration for planning from Odense to three cities.}
+\label{tb:fromonetocities}
+\end{figure}
 
 
-CONSOLE OUTPUT
+\subsection{Planning, Shifts and Ticket price}
+Following three examples show planning paths and cheapest price from different cities.
 
-\end{lstlisting}
-
-\subsection{Odense to Humlebæk}
-
-\begin{lstlisting}
-
-
-CONSOLE OUTPUT
-
-\end{lstlisting}
+\subsubsection{Odense to Næstved}
+\textbf{Departure:} Odense \\
+\textbf{Arrival:}   Næstved \\
+\textbf{Shifts:}    6: Odense $\rightarrow$ Værløse $\rightarrow$ Rødvig Stevns $\rightarrow$ Humble $\rightarrow$ Skørping $\rightarrow$ Kerteminde $\rightarrow$ Næstved\\
+\textbf{Ticket:}    64,- DKK \\
+\textbf{Duration:}  62,306 [ms] 
+\subsubsection{Odense to Sønderborg}
+\textbf{Departure:} Odense \\
+\textbf{Arrival: }  Sønderborg \\ 
+\textbf{Shifts}:    5: Odense $\rightarrow$ Værløse $\rightarrow$ Hornsyld $\rightarrow$ Ebberup $\rightarrow$ Vig $\rightarrow$ Sønderborg \\
+\textbf{Ticket}:    88,- DKK \\
+\textbf{Duration:}  62,148 [ms]
+\subsubsection{Vadum to Vejle}
+\textbf{Departure:} Vadum\\
+\textbf{Arrival}:   Vejle\\
+\textbf{Shifts:}    7: Vadum $\rightarrow$ Højbjerg $\rightarrow$ Glesborg $\rightarrow$ Gjern $\rightarrow$ Assels Øster $\rightarrow$ Ærøskøbing $\rightarrow$ Børkop $\rightarrow$ Vejle \\
+\textbf{Ticket:}    62,- DKK \\
+\textbf{Duration:}  60,99 [ms]
 
 
 
