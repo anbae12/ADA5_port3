@@ -25,32 +25,39 @@ void Graph::printFrom(std::string from){
 \end{lstlisting}
 \bigskip
 
-Accesable cities from "Odense" is copyed from the console output and showed below:\\ \emph{
-To: Stubbekøbing Cost: 20\\
-To: Værløse Cost: 22\\
-To: Hjørring Cost: 33\\
-To: København Cost: 29\\
-To: Søllested Cost: 54\\
-To: Gedved Cost: 62\\
-To: Broby Cost: 67\\
-To: Odder Cost: 48\\
-To: Hørning Cost: 34\\
-To: Spenstrup Cost: 144\\
-To: Dronningmølle Cost: 73\\
-To: Karup Cost: 204\\
-To: Kalundborg Cost: 173\\
-To: Kerteminde Cost: 193\\
-To: Jerup Cost: 87\\
-To: Hovborg Cost: 221\\
-To: Vedbæk Cost: 163\\
-To: Rønde Cost: 187\\
-To: Mørkøv Cost: 47\\
-To: Langebæk Cost: 234\\
-To: Langeskov Cost: 191\\
-To: Ålsgårde Cost: 177\\
-To: Nysted Cost: 102\\}
-
-
+Accesable cities from "Odense" is copyed from the console output and showed in table \ref{tb:fromodense}. 
+\begin{figure}[th!]
+\centering
+\begin{tabular}{l|l}
+To &Cost\\\hline
+Stubbekøbing & 20\\
+Værløse & 22\\
+Hjørring & 33\\
+København & 29\\
+Søllested & 54\\
+Gedved & 62\\
+Broby & 67\\
+Odder & 48\\
+Hørning & 34\\
+Spenstrup & 144\\
+Dronningmølle & 73\\
+Karup & 204\\
+Kalundborg & 173\\
+Kerteminde & 193\\
+Jerup & 87\\
+Hovborg & 221\\
+Vedbæk & 163\\
+Rønde & 187\\
+Mørkøv & 47\\
+Langebæk & 234\\
+Langeskov & 191\\
+Ålsgårde & 177\\
+Nysted & 102\\
+\end{tabular}
+\captionsetup{type=table}
+\caption[tekst i indholdsfortegnelsen]{Associated arrival cities and cost from Odense.}
+\label{tb:fromodense}
+\end{figure}
 
 \subsection{Question \#3}
 We have chosen to use the Dijkstras algorithm for computing the quickest route between two destinations. The properties of Dijkstras algorithm producing a shortest path for a graph with non-negative edge path costs. \\
