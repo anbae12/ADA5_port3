@@ -6,20 +6,11 @@ Notice that even though there is a route from A to B, there might not be one fro
 
 \section{Solution}
 \subsection{Question \#1}
-\todo[inline]{Some kind of pseudo code}
 A routine for loading in the file and appropriate data structures for representing the data is shown in appendices \ref{app:FileHandle} and \ref{app:Vertex}.\\
 We are using a Hash-map where from cities are associated with accesable cities and thier egde cost.
 
-
-
 \subsection{Question \#2}
-\todo[inline]{Some kind of pseudo code}
-\todo[inline]{Print from Odense for later use}
-
-As mentioned before the from cities is associate to cities with a giving cost. The apporach for
-
-
-
+As mentioned before the from cities is associate to cities with a giving cost.  The apporach for printing the "to cities" is showed by the psodocode and the listing below. 
 
 \begin{lstlisting}
 void Graph::printFrom(std::string from){
@@ -34,27 +25,73 @@ void Graph::printFrom(std::string from){
 \end{lstlisting}
 \bigskip
 
-Console output is showed below:
-\begin{lstlisting}
+Accesable cities from "Odense" is copyed from the console output and showed below:\\ \emph{
+To: Stubbekøbing Cost: 20\\
+To: Værløse Cost: 22\\
+To: Hjørring Cost: 33\\
+To: København Cost: 29\\
+To: Søllested Cost: 54\\
+To: Gedved Cost: 62\\
+To: Broby Cost: 67\\
+To: Odder Cost: 48\\
+To: Hørning Cost: 34\\
+To: Spenstrup Cost: 144\\
+To: Dronningmølle Cost: 73\\
+To: Karup Cost: 204\\
+To: Kalundborg Cost: 173\\
+To: Kerteminde Cost: 193\\
+To: Jerup Cost: 87\\
+To: Hovborg Cost: 221\\
+To: Vedbæk Cost: 163\\
+To: Rønde Cost: 187\\
+To: Mørkøv Cost: 47\\
+To: Langebæk Cost: 234\\
+To: Langeskov Cost: 191\\
+To: Ålsgårde Cost: 177\\
+To: Nysted Cost: 102\\}
 
-
-CONSOLE OUTPUT
-
-\end{lstlisting}
 
 
 \subsection{Question \#3}
 We have chosen to use the Dijkstras algorithm for computing the quickest route between two destinations. The properties of Dijkstras algorithm producing a shortest path for a graph with non-negative edge path costs. \\
-The Dijkstras creates the graph of vetrices and egdes from a priority queues which ensure the algorithm at alltime  get next vertex with the lowest egde cost. It was nessaray to make an overloadoperator \emph{Comp} (appendix \ref{app:vertex_h}) to get the queue match our data structure and sorting correctly for the \emph{cost}.
+The Dijkstras creates the graph of vetrices and egdes from a priority queues which ensure the algorithm at alltime  get next vertex with the lowest egde cost. It was nessaray to make an overloadoperator \emph{Comp} (appendix \ref{app:vertex_h}) to get the queue match our data structure and sorting correctly for the \emph{cost}.\\
 
-\todo[inline]{Some kind of pseudo code}
 \begin{lstlisting}
-psoducode
+DijkResult Dijkstras::Run(std::string from, std::string to){
+	if (mGraph->vertices.find(from) == mGraph->vertices.end()) {
+		std::cout<<"Not found: "<<from<<std::endl;
+		exit(0);
+	}
+	if (mGraph->vertices.find(to) == mGraph->vertices.end()) {
+		std::cout<<"Not found: "<<to<<std::endl;
+		exit(0);
+	}
+	std::string depTown = from;
+	std::string arTown = to;
+
+	mGraph->vertices[from]->dist=0;
+	dijkstrasQueue.push(mGraph->vertices[from]);
+	while (!dijkstrasQueue.empty()) {
+		from = dijkstrasQueue.top()->element;
+		dijkstrasQueue.pop();
+		while (!mGraph->vertices[from]->edge.empty()) {
+			std::string to = mGraph->vertices[from]->edge.top().first->element;
+			int cost  = mGraph->vertices[from]->edge.top().second;
+
+			int edgeplusnode = cost + mGraph->vertices[from]->dist;
+
+			if ( edgeplusnode <  mGraph->vertices[to]->dist) {
+				mGraph->vertices[to]->dist=edgeplusnode;
+				mGraph->vertices[to]->from=mGraph->vertices[from];
+			}
+			dijkstrasQueue.push(mGraph->vertices[from]->edge.top().first );
+			mGraph->vertices[from]->edge.pop();
+		}
+	}
+	auto route = path(mGraph->vertices[depTown], mGraph->vertices[arTown]);
+	return DijkResult(route.second,mGraph->vertices[arTown]->dist,0, route.first);
+}
 \end{lstlisting}
-
-
-
-
 
 \section{Examples and Benchmarks}
 \subsection{Ten different from and to cities}
