@@ -68,7 +68,7 @@ dijkstras::dijkstras(std::string from,std::string to, Graph &graph){
     std::cout <<"---------------------"<<std::endl;
     
     std::ofstream myfile;
-    myfile.open ("/Users/anderslaunerbaek/Documents/example.dot");
+    myfile.open ("/Users/anderslaunerbaek/Desktop/example.dot");
     //myfile.open ("example.txt");
     myfile << lateXGenerator.getOutput();
     myfile.close();
