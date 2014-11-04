@@ -13,14 +13,14 @@ We are using a Hash-map where from cities are associated with accesable cities a
 As mentioned before the from cities is associate to cities with a giving cost.  The apporach for printing the "to cities" is showed by the psodocode and the listing below. 
 
 \begin{lstlisting}
-void Graph::printFrom(std::string from){
+printFrom(string from){
 	if(vertices.find(from) == vertices.end()){
-		std::cout <<  "City \"" + from +  "\" not found" << std::endl;
+		cout <<  "City \"" + from +  "\" not found" << :endl;
 		return ;
 	}
-	for(auto it = vertices[from]->edge.get_container().begin() ; it != vertices[from]->edge.get_container().end(); ++it ){
-		std::cout << "To: " << it->first->element << " Cost: " <<it->second  << std::endl;
-	}
+	foreach(item in queue(from)){
+		cout << item->element << endl;
+	}	
 } 
 \end{lstlisting}
 \bigskip
@@ -60,23 +60,20 @@ Nysted & 102\\
 \end{figure}
 
 \subsection{Question \#3}
-We have chosen to use the Dijkstras algorithm for computing the quickest route between two destinations. The properties of Dijkstras algorithm producing a shortest path for a graph with non-negative edge path costs. \\
-The Dijkstras creates the graph of vetrices and egdes from a priority queues which ensure the algorithm at alltime  get next vertex with the lowest egde cost. It was nessaray to make an overloadoperator \emph{Comp} (appendix \ref{app:vertex_h}) to get the queue match our data structure and sorting correctly for the \emph{cost}.\\
+We have chosen to use the Dijkstras algorithm for computing the distances to each vertex from a given vertex. \\
 
 \begin{lstlisting}
-DijkResult Dijkstras::Run(std::string from, std::string to){
-	if (mGraph->vertices.find(from) == mGraph->vertices.end()) {
-		std::cout<<"Not found: "<<from<<std::endl;
+DijkResult Run(from, to){
+	if (from from in list) {
+		cout<<"Not found: " << to << endl;
 		exit(0);
 	}
-	if (mGraph->vertices.find(to) == mGraph->vertices.end()) {
-		std::cout<<"Not found: "<<to<<std::endl;
-		exit(0);
-	}
-	std::string depTown = from;
-	std::string arTown = to;
 
-	mGraph->vertices[from]->dist=0;
+	string depTown = from;
+	string arTown = to;
+
+	//HERE HERE 
+->dist=0;
 	dijkstrasQueue.push(mGraph->vertices[from]);
 	while (!dijkstrasQueue.empty()) {
 		from = dijkstrasQueue.top()->element;
