@@ -20,15 +20,6 @@ void Graph::addEdge(std::string From, std::string To, int Cost) {
 	from->edge.push(std::make_pair(to,Cost));
 }
 
-std::string Graph::printFromDot(std::string from){
-	LateXGenerator lateXGenerator;
-	lateXGenerator.AddVertex(from);
-        for(auto it = vertices[from]->edge.get_container().begin() ; it != vertices[from]->edge.get_container().end(); ++it ){
-            std::cout << "From \"" + from + "\" to: " << it->first->element << std::endl;
-            lateXGenerator.AddEdge(from,it->first->element, it->second);
-        }
-	return lateXGenerator.getOutput();
-}
 
 void Graph::printFrom(std::string from){
 	if(vertices.find(from) == vertices.end()){
