@@ -9,9 +9,7 @@
 #include <limits> 
 
 Vertex::Vertex(std::string value) {
-	// TODO Auto-generated constructor stub
 	element = value;
-    known = false;
     dist = std::numeric_limits<int>::max();
     from=NULL;  // Used in dijkstras
 }

@@ -31,7 +31,6 @@ public:
 	Vertex(std::string value);
 	std::string element;
     Container edge;
-    bool known;
     int dist;
     Vertex* from;
 };
