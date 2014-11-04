@@ -20,9 +20,7 @@ DijkResult Dijkstras::Run(std::string from, std::string to){
 	std::string arTown = to;
 
 	mGraph->vertices[from]->dist=0;
-	std::cout << "ch4 \n";
 	dijkstrasQueue.push(mGraph->vertices[from]);
-	std::cout << "ch5 \n";
 	while (!dijkstrasQueue.empty()) {
 		from = dijkstrasQueue.top()->element;
 		dijkstrasQueue.pop();
@@ -40,9 +38,7 @@ DijkResult Dijkstras::Run(std::string from, std::string to){
 			mGraph->vertices[from]->edge.pop();
 		}
 	}
-	std::cout << "ch6 \n";
 	auto route = path(mGraph->vertices[depTown], mGraph->vertices[arTown]);
-	std::cout << "ch7 \n";
 	return DijkResult(route.second,mGraph->vertices[arTown]->dist,0, route.first);
 }
 
