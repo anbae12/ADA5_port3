@@ -9,16 +9,58 @@ Notice that even though there is a route from A to B, there might not be one fro
 \section{Solution}
 \subsection{Question \#1}
 \todo[inline]{Some kind of pseudo code}
-A routine for loading in the file and appropriate data structures for representing the data.
+A routine for loading in the file and appropriate data structures for representing the data is shown in appendices \ref{app:FileHandle} and \ref{app:Vertex}.\\
+We are using a Hash-map where the from cities are associated with accesable towns and thier egde cost.
+
+
+
 \subsection{Question \#2}
 \todo[inline]{Some kind of pseudo code}
-\todo[inline]{How we use .dot for printing}
 \todo[inline]{Print from Odense for later use}
 A method for determining which cities you can reach from a given start city.
+
+
 \subsection{Question \#3}
 \todo[inline]{Some kind of pseudo code}
 \todo[inline]{Why we use the dijkstras algorithm}
-A method for computing the quickest route between two destinations.
+We have chosen to use the Dijkstras algorithm for computing the quickest route between two destinations. The properties of Dijkstras algorithm producing a shortest path tree for a graph data structure with non-negative edge path costs. \\
+
+The complexity of the algorithm 
+
+
+\begin{lstlisting}
+function Dijkstra(Graph, source):
+    dist[source] := 0                     // Initializations
+    for each vertex v in Graph:           
+        if v != source
+            dist[v] := infinity           // Unknown distance from source to v
+            previous[v] := undefined      // Predecessor of v
+        end if
+        Q.add_with_priority(v,dist[v])
+9      end for 
+10
+11
+12     while Q is not empty:                 // The main loop
+13         u := Q.extract_min()              // Remove and return best vertex
+14         mark u as scanned
+15         for each neighbor v of u:
+16             if v is not yet scanned:
+17                 alt = dist[u] + length(u, v) 
+18                 if alt < dist[v]
+19                     dist[v] := alt
+20                     previous[v] := u
+21                     Q.decrease_priority(v,alt)
+22                 end if
+23             end if
+24         end for
+25     end while
+26     return previous[]
+
+\end{lstlisting}
+
+
+
+This algorithm is often used in routing and as a subroutine in other graph algorithms.
 
 
 \section{Examples and Benchmarks}
@@ -45,16 +87,6 @@ A method for computing the quickest route between two destinations.
 \end{figure}
 
 \subsection{Odense to Humlebæk}
-
-
-\begin{lstlisting}[frame=single]
-Departure: Odense\\
-%Arrival:   Humlebæk\\
-%Shifts:    6: Odense -> Værløse -> Randbøl -> Lemming -> Gram -> Øster Vrå -> Humlebæk\\
-Ticket:    62,- DKK\\
-Duration:  68.65 [ms]\\
----------------------
-\end{lstlisting}
 
 \begin{figure}[th!]
 \centering
