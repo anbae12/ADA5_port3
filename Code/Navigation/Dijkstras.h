@@ -42,4 +42,4 @@ private:
     std::shared_ptr<Graph> mGraph;
 };
 
-#endif /* defined(__Navigation__dijkstras__) */
+#endif
