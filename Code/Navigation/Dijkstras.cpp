@@ -8,9 +8,6 @@ std::pair<std::string, int> Dijkstras::path(Vertex* from, Vertex* arrival){
 	return std::make_pair(val.first + " -> " + arrival->element, val.second+1 );
 }
 DijkResult Dijkstras::Run(std::string from, std::string to){
-	//LateXGenerator lateXGenerator;
-	clock_timer timerrecord;
-    timerrecord.start_timer();
 	if (mGraph->vertices.find(from) == mGraph->vertices.end()) {
 		std::cout<<"Not found: "<<from<<std::endl;
 		exit(0);
@@ -23,8 +20,6 @@ DijkResult Dijkstras::Run(std::string from, std::string to){
 	std::string arTown = to;
 
 	mGraph->vertices[from]->dist=0;
-
-	//lateXGenerator.AddVertex(from);
 
 	dijkstrasQueue.push(mGraph->vertices[from]);
 
@@ -43,21 +38,11 @@ DijkResult Dijkstras::Run(std::string from, std::string to){
 			}
 			dijkstrasQueue.push(mGraph->vertices[from]->edge.top().first );
 			mGraph->vertices[from]->edge.pop();
-			//lateXGenerator.AddEdge(from, to, cost);
 		}
-		//mGraph->vertices[from]->known=true; <- unsued ?
 	}
 
-	
 	auto route = path(mGraph->vertices[depTown], mGraph->vertices[arTown]);
-	timerrecord.stop_timer();
-
-	std::ofstream myfile;
-	myfile.open ("/Users/anderslaunerbaek/Documents/example.dot");
-	//myfile.open ("example.txt");
-	//myfile << lateXGenerator.getOutput();
-	myfile.close();
-	return DijkResult(route.second,mGraph->vertices[arTown]->dist,timerrecord.duration, route.first);
+	return DijkResult(route.second,mGraph->vertices[arTown]->dist,0, route.first);
 }
 
 Dijkstras::Dijkstras(std::shared_ptr<Graph> graph){
