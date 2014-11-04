@@ -72,12 +72,15 @@ DijkResult Run(from, to){
 	string depTown = from;
 	string arTown = to;
 
-	//HERE HERE 
-->dist=0;
+	mGraph->verticies[from]->dist=0;
+
 	dijkstrasQueue.push(mGraph->vertices[from]);
+
 	while (!dijkstrasQueue.empty()) {
+
 		from = dijkstrasQueue.top()->element;
 		dijkstrasQueue.pop();
+
 		while (!mGraph->vertices[from]->edge.empty()) {
 			std::string to = mGraph->vertices[from]->edge.top().first->element;
 			int cost  = mGraph->vertices[from]->edge.top().second;
@@ -93,9 +96,15 @@ DijkResult Run(from, to){
 		}
 	}
 	auto route = path(mGraph->vertices[depTown], mGraph->vertices[arTown]);
-	return DijkResult(route.second,mGraph->vertices[arTown]->dist,0, route.first);
+	return DijkResult(route.second,mGraph->vertices[arTown]->dist, route.first);
 }
 \end{lstlisting}
+
+The algorthm works by starting at the "from vertex", visit each adjacent vertex(and add them to the dijkstra priority_queue), add distance and "move" to the node with the shortest distance. 
+It will then again visit each adjacent vertex and update the distance if it's smaller than the distance which is already there.
+Default all distances is initialised to the maximum value an integer can take to represent infiniti distance.
+
+
 
 \section{Examples and Benchmarks}
 \subsection{Ten different from and to cities}
