@@ -36,9 +36,13 @@ int main(int argc, const char * argv[]) {
 	for(auto i = froms.begin(); i != froms.end(); ++i){
 		std::cout << *i << std::endl;
 		Dijkstras di(graph);
+		std::cout << graph->vertices["Odense"]->edge.top().first->dist << std::endl;
+		std::cout << "ch1 \n";
 
 		timerrecord.start_timer();
+		std::cout << "ch2 \n";
 		DijkResult result =  di.Run(*i, toTown);
+		std::cout << "ch8 \n";
 		timerrecord.stop_timer();
 		std::cout << "runtime: "  << timerrecord.duration << std::endl;
 		runTime+=timerrecord.duration;

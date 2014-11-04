@@ -20,9 +20,9 @@ DijkResult Dijkstras::Run(std::string from, std::string to){
 	std::string arTown = to;
 
 	mGraph->vertices[from]->dist=0;
-
+	std::cout << "ch4 \n";
 	dijkstrasQueue.push(mGraph->vertices[from]);
-
+	std::cout << "ch5 \n";
 	while (!dijkstrasQueue.empty()) {
 		from = dijkstrasQueue.top()->element;
 		dijkstrasQueue.pop();
@@ -40,19 +40,22 @@ DijkResult Dijkstras::Run(std::string from, std::string to){
 			mGraph->vertices[from]->edge.pop();
 		}
 	}
-
+	std::cout << "ch6 \n";
 	auto route = path(mGraph->vertices[depTown], mGraph->vertices[arTown]);
+	std::cout << "ch7 \n";
 	return DijkResult(route.second,mGraph->vertices[arTown]->dist,0, route.first);
 }
 
 Dijkstras::Dijkstras(std::shared_ptr<Graph> graph){
+
 	this->mGraph = graph;
 
 	for(auto it = mGraph->vertices.begin(); it != mGraph->vertices.end(); ++it){
+		it->second->dist = std::numeric_limits<int>::max();
+		it->second->from = NULL;
 		for(auto itwo = it->second->edge.get_container().begin(); itwo != it->second->edge.get_container().end(); ++itwo){
-			it->second->dist = std::numeric_limits<int>::max();
-			//it->second->known = false;
-			it->second->from = NULL;
+			itwo->first->dist = std::numeric_limits<int>::max();
+			itwo->first->from = NULL;
 		}
 	}
 }; 

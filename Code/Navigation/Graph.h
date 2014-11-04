@@ -10,7 +10,7 @@
 
 class Graph {
 	typedef std::map <std::string, Vertex*> Vertices;
-	typedef std::pair <Vertex, int> Edge;
+	//typedef std::pair <Vertex, int> Edge;
 public:
 	std::map <std::string, Vertex*> vertices;
 	void addVertex(std::string value);
