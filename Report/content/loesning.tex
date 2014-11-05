@@ -8,9 +8,10 @@ Notice that even though there is a route from A to B, there might not be one fro
 \section{Solution}
 \subsection{Question \#1}
 A routine for loading in the file and a appropriate data structure for representing the data is shown in appendices  \ref{app:Vertex} and \ref{app:FileHandle}. We are using a Hash-map where from-cities are associated with accesable to-cities and their edge cost.\\
-All the from-vertices are listed in a hash-map. The reason why we use a hash-map is to make the lookup time constant. \\
-Each vertex is represented by an instance of the class called Vertex. This includes a string with the name of the vertex, a priority queue including all of its edges. Each edge consists of a C++11 pair, where the first value is the adjacent vertex, and the second value is the cost. The reason why a priority queue has been chosen, instead of an ordinary vector, is to avoid using a sorting algorithm to sort the vector.\\
-If the vector was chosen the complexity would increase to O($|V|^2$) insted of O(|E| + |V|log(|V|)).
+The reason why the group use a hash-map is to make the lookup time constant. \\
+Each vertex is represented by an instance of the class called Vertex. This class includes a string with the name of the vertex, a priority queue including all of its edges. Each edge consists of a std::pair, where the first value is a pointer to an adjacent vertex, and the second value is the cost. 
+The reason why a priority queue has been chosen, instead of an ordinary vector, is to avoid using a sorting algorithm to sort the vector.\\
+If the vector was chosen the complexity would increase to O($|V|^2$) insted of O(|E| + |V|log(|V|)). \\
 To parse the file, the following approach has been used:
 \bigskip
 \begin{lstlisting}
