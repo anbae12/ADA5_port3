@@ -5,17 +5,6 @@
 //  Copyright (c) 2014 Anders Launer Baek. All rights reserved.
 //
 
-/*
- remember to include header: 
- #include "clock_timer.h"
- 
- Useage:
- 
- clock_timer timerrecord;
- timerrecord.start_timer();
- timerrecord.stop_timer();
- */
-
 #ifndef __timer_clock__clock_timer__
 #define __timer_clock__clock_timer__
 #include <ctime>

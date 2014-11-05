@@ -9,7 +9,6 @@
 #include "Graph.h"
 #include <memory>
 
-
 class FileHandle {
 public:
 	FileHandle(std::string filename);

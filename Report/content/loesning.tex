@@ -74,8 +74,8 @@ Nysted & 102\\
 \end{figure}
 
 \subsection{Question \#3}
-We have chosen to use the Dijkstra's algorithm for computing the distances to each vertex from a given vertex. \\
-
+We have chosen to use the Dijkstra's algorithm for computing the distances to each vertex from a given vertex.
+\bigskip
 \begin{lstlisting}
 DijkResult Run(from, to){
 	if (from from in list) {
@@ -113,11 +113,10 @@ DijkResult Run(from, to){
 	return DijkResult(route.second,mGraph->vertices[arTown]->dist, route.first);
 }
 \end{lstlisting}
-
+\bigskip
 The algorithm works by starting at the "from vertex", visit each adjacent vertex (and add them to the Dijkstra priority queue), add distance and "move" to the node with the shortest distance. 
 It will then again visit each adjacent vertex and update the distance if it's smaller than the distance which is already there.
 Default all distances is initialized to the maximum value an integer can take to represent infinity distance.
-
 
 
 \section{Examples and Benchmarks}

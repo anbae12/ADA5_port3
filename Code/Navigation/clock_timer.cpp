@@ -8,7 +8,6 @@
 
 #include "clock_timer.h"
 
-
 void clock_timer::start_timer(){
     start = std::clock();
 }
