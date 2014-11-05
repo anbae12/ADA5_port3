@@ -8,8 +8,8 @@ Notice that even though there is a route from A to B, there might not be one fro
 \section{Solution}
 \subsection{Question \#1}
 A routine for loading in the file and a appropriate data structure for representing the data is shown in appendices  \ref{app:Vertex} and \ref{app:FileHandle}. We are using a Hash-map where from-cities are associated with accesable to-cities and their edge cost.\\
-All the from-vertices are listed in a hash-map, the reason we using a hash-map is to make the lookup time constant. \\
-Each vertex is represented by a class called Vertex. This includes a string with the name of the vertex, a priority queue including all of its edges. The reason why a priority queue has been chosen instead of an ordinary vector is to avoid using a sorting algorithm to sort the vector.\\
+All the from-vertices are listed in a hash-map. The reason why we use a hash-map is to make the lookup time constant. \\
+Each vertex is represented by an instance of the class called Vertex. This includes a string with the name of the vertex, a priority queue including all of its edges. The reason why a priority queue has been chosen instead of an ordinary vector is to avoid using a sorting algorithm to sort the vector.\\
 To parse the file, the following approach has been used:
 \bigskip
 \begin{lstlisting}
@@ -32,11 +32,12 @@ As mentioned before the from-cities are associate to-cities with a giving cost. 
 printFrom(from-city){
 	check all vertices 
 	if ( end of vertices ) return "from-city not found "
-	while(! vertices (from-city) not end ){
-	    print associated cities and giving cost
-        }
+	foreach( adjacent vertex to from-city){
+	    print associated city and giving cost
+    }
 }
 \end{lstlisting}
+The iteration through all adjacent vertices has been implemented by inheriting the priority_queue. The underlaying container is protected and there by accessable through inheriting and implementing a get_container() method in the derived class that returns the vector.
 \bigskip
 It first checks if the from-city is in the hash-map. If not, it returns and will not print any associated cities. If found, it will iterate through all the associated cities and their cost.\\
 Accessible cities from "Odense" is copied from the console output and showed in table \ref{tb:fromodense}. 
@@ -79,38 +80,34 @@ We have chosen to use the Dijkstra's algorithm for computing the distances to ea
 \begin{lstlisting}
 DijkResult Run(from, to){
 	if (from from in list) {
-		cout<<"Not found: " << to << endl;
-		exit(0);
+		cout<<"Not found: " << to << endl
+		exit(0)
 	}
 
-	string depTown = from;
-	string arTown = to;
+	fromVertex.dist = 0;
 
-	mGraph->verticies[from]->dist=0;
+	dijkstrasQueue.add(fromVertex);
 
-	dijkstrasQueue.push(mGraph->vertices[from]);
+	while (dijkstrasQueue not empty) {
 
-	while (!dijkstrasQueue.empty()) {
+		from = dijkstrasQueue.top()
+		while(while adjacent list is not empty){
 
-		from = dijkstrasQueue.top()->element;
-		dijkstrasQueue.pop();
+			string to = vertices[from]->edge.top().first->element
+			int cost  = vertices[from]->edge.top().second
 
-		while (!mGraph->vertices[from]->edge.empty()) {
-			std::string to = mGraph->vertices[from]->edge.top().first->element;
-			int cost  = mGraph->vertices[from]->edge.top().second;
+			int edgeplusnode = cost + vertices[from]->dist
 
-			int edgeplusnode = cost + mGraph->vertices[from]->dist;
-
-			if ( edgeplusnode <  mGraph->vertices[to]->dist) {
-				mGraph->vertices[to]->dist=edgeplusnode;
-				mGraph->vertices[to]->from=mGraph->vertices[from];
+			if ( edgeplusnode <  vertices[to]->dist) {
+				vertices[to]->dist = edgeplusnode
+				vertices[to]->from = vertices[from]
 			}
-			dijkstrasQueue.push(mGraph->vertices[from]->edge.top().first );
-			mGraph->vertices[from]->edge.pop();
+			dijkstrasQueue.push(vertices[from]->edge.top().first )
+			vertices[from]->edge.pop()
 		}
 	}
-	auto route = path(mGraph->vertices[depTown], mGraph->vertices[arTown]);
-	return DijkResult(route.second,mGraph->vertices[arTown]->dist, route.first);
+	auto route = path(vertices[depTown], vertices[arTown]);
+	return DijkResult(route.second, vertices[arTown]->dist, route.first);
 }
 \end{lstlisting}
 \bigskip
