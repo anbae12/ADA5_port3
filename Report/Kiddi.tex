@@ -7,7 +7,12 @@
 \usepackage{amssymb}
 \begin{document}
 \section{Implementation choice}
-Each vertex is represented by a class called Vertex. This includes a string with the name of the vertex, a priority queue  including all of it's edges.  The reason why it has been choosen to use a priorityqueue, instead of an ordinary vector  is to avoid using a sorting algorithm to sort the vector. 
+All the from Vertexes is listed in a hashmap, the reason we using a hashmap is to make the lookup time constant. \\
+Each vertex is represented by a class called Vertex. This includes a string with the name of the vertex, a priority queue  including all of it's edges.  The reason why it has been choosen to use a priorityqueue, instead of an ordinary vector  is to avoid using a sorting algorithm to sort the vector.
+
+ 
+
+
 
 
 \end{document}
