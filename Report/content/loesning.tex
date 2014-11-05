@@ -7,9 +7,9 @@ Notice that even though there is a route from A to B, there might not be one fro
 
 \section{Solution}
 \subsection{Question \#1}
-A routine for loading in the file and appropriate data structures for representing the data is shown in appendices  \ref{app:Vertex} and \ref{app:FileHandle}. We are using a Hash-map where from cities are associated with accesable cities and their edge cost.\\
-All the from vertices is listed in a hash-map, the reason we using a hash-map is to make the lookup time constant. \\
-Each vertex is represented by a class called Vertex. This includes a string with the name of the vertex, a priority queue including all of it's edges. The reason why it has been chosen to use a priority queue, instead of an ordinary vector is to avoid using a sorting algorithm to sort the vector.\\
+A routine for loading in the file and a appropriate data structure for representing the data is shown in appendices  \ref{app:Vertex} and \ref{app:FileHandle}. We are using a Hash-map where from-cities are associated with accesable to-cities and their edge cost.\\
+All the from-vertices are listed in a hash-map, the reason we using a hash-map is to make the lookup time constant. \\
+Each vertex is represented by a class called Vertex. This includes a string with the name of the vertex, a priority queue including all of its edges. The reason why a priority queue has been chosen instead of an ordinary vector is to avoid using a sorting algorithm to sort the vector.\\
 To parse the file, the following approach has been used:
 \bigskip
 \begin{lstlisting}
@@ -26,7 +26,7 @@ For each line in the file, the from-city is extracted. For the rest of the line,
 
 
 \subsection{Question \#2}
-As mentioned before the from-cities is associate to-cities with a giving cost. The approach for printing the to-cities is showed by the psodocode and the listing below. 
+As mentioned before the from-cities are associate to-cities with a giving cost. The approach for printing the to-cities is showed by the pseudocode and the listing below. 
 \bigskip
 \begin{lstlisting}
 printFrom(from-city){
@@ -114,15 +114,13 @@ DijkResult Run(from, to){
 }
 \end{lstlisting}
 \bigskip
-The algorithm works by starting at the "from vertex", visit each adjacent vertex (and add them to the Dijkstra priority queue), add distance and "move" to the node with the shortest distance. 
-It will then again visit each adjacent vertex and update the distance if it's smaller than the distance which is already there.
-Default all distances is initialized to the maximum value an integer can take to represent infinity distance.
-
+The algorithm works by starting at the from-vertex, visit each adjacent vertex (to-cities) and add them to the Dijkstra priority queue. Then add cost and "move" to the node with the lowest cost.
+The algorithm will again visit each adjacent vertex and update the cost if it's smaller than the exiting cost.
+By default all vertices cost are initialized to the maximum value an integer can represent, hereby an "infinity cost".
 
 \section{Examples and Benchmarks}
 \subsection{Ten different from and to cities}
-Table \ref{tb:fromtoten} shows planning duration from different from- and to-cities.
-
+Table \ref{tb:fromtoten} shows the planning duration from different from-cities and to-cities.
 \begin{figure}[th!]
 \centering
 \begin{tabular}{l|l|l}
@@ -140,14 +138,14 @@ Farum & Hadsten & 61,869 [ms] \\\hline
 Average runtime && 62,37 [ms]
 \end{tabular}
 \captionsetup{type=table}
-\caption[tekst i indholdsfortegnelsen]{Duration for ten different from and to-cities.}
+\caption[tekst i indholdsfortegnelsen]{Duration for ten different from-cities and to-cities.}
 \label{tb:fromtoten}
 \end{figure}
 
 
 
 \subsection{Test from from-city to to-cities}
-Table \ref{tb:fromonetocities} shows planning duration from one from-city to three different to-cities. And as you can see in the table, after the first planning the next planning durations are fairly low.
+Table \ref{tb:fromonetocities} the shows planning duration from one from-city to three different to-cities. As you see in the table \ref{tb:fromonetocities} the first planning duration is fairly high according to the two next route plannings.
 \begin{figure}[th!]
 \centering
 \begin{tabular}{l|l|l}
@@ -163,7 +161,7 @@ Odense & Vadum & 0,005 [ms]
 
 
 \subsection{Planning, Shifts and Ticket price}
-Following three examples show planning paths and cheapest price from different cities.
+Following three examples show the route planning from a giving city to a giving city. It return the path and cheapest price and the planning duration.
 
 \subsubsection{Odense to Næstved}
 \textbf{Departure:} Odense \\
@@ -184,8 +182,6 @@ Following three examples show planning paths and cheapest price from different c
 \textbf{Ticket:}    62,- DKK \\
 \textbf{Duration:}  60,99 [ms]
 
-
-
 \section{Conclusion}
-
+By using the Dijkstra's algorithm and having the data in a suitable data structure it was possible to get a nice cheapest route planning algorithm. To make a suitable algorithm which have an average duration of 62,37 [ms] (table \ref{tb:fromtoten}) for planning the cheapest route between ten different from-cities and to-cities, we conclude the portfolio is successful. 
 
