@@ -1,13 +1,29 @@
 \section{Intro}
 \label{sec:intro}
-\textit{"You are going to develop a travel-planning system in which you will need to implement a method for computing the cheapest route between destinations. \\Data about the destinations and possible routes between them are placed in a file (to be found on black board next to the assignment) where each line contains a destination followed by the cities to which you can travel and the associated cost. \\
+\textit{"You are going to develop a travel-planning system in which you will need to implement a method for computing the cheapest route between destinations. \\
+Data about the destinations and possible routes between them are placed in a file (to be found on black board next to the assignment) where each line contains a destination followed by the cities to which you can travel and the associated cost. \\
 Notice that even though there is a route from A to B, there might not be one from B to A."}
 
 
 \section{Solution}
 \subsection{Question \#1}
 A routine for loading in the file and appropriate data structures for representing the data is shown in appendices \ref{app:FileHandle} and \ref{app:Vertex}. We are using a Hash-map where from cities are associated with accesable cities and thier egde cost.\\
-Each vertex is represented by a class called Vertex. This includes a string with the name of the vertex, a priority queue  including all of it's edges.  The reason why it has been choosen to use a priorityqueue, instead of an ordinary vector  is to avoid using a sorting algorithm to sort the vector. 
+Each vertex is represented by an instance of the class called Vertex. This includes a string with the name(city) of the vertex, and a priority queue  including all of its edges.  The reason why it has been choosen to use a priorityqueue, instead of an ordinary vector, is to avoid using a sorting algorithm to sort the vector. It is required by the dijkstra algorithm to get the lowest distance/cost.
+
+To parse the file, the following approach has been used:
+
+\begin{lslisting}
+	foreach(line in file){
+		from = getFrom(line);
+		while(getline(line,to,',') && getline(line,cost,',')) {
+			graph->addVertex(to);
+			graph->addEdge(from, to, cost);
+		}
+	}
+\end[lslisting]
+
+For each line in the file, the from-city is extracted. For the rest of the line, the while loop will parse to and cost. If getline can not get a value, it will return false. For each to-city and associated cost, it will create a vertex and add an edge between the two cites. If the from-city already exist it will throw an exception. This has been omitted in the code above for simplicity.
+
 
 
 
@@ -16,13 +32,12 @@ Each vertex is represented by a class called Vertex. This includes a string with
 As mentioned before the from cities is associate to cities with a giving cost.  The apporach for printing the "to cities" is showed by the psodocode and the listing below. 
 \bigskip
 \begin{lstlisting}
-printFrom(string from){
+printFrom(from){
 	if(vertices.find(from) == vertices.end()){
-		cout <<  "City \"" + from +  "\" not found" << :endl;
-		return ;
+		return "City not found"
 	}
 	foreach(item in queue(from)){
-		cout << item->element << endl;
+		cout << item->element << endl
 	}	
 } 
 \end{lstlisting}
