@@ -6,12 +6,15 @@ Notice that even though there is a route from A to B, there might not be one fro
 
 \section{Solution}
 \subsection{Question \#1}
-A routine for loading in the file and appropriate data structures for representing the data is shown in appendices \ref{app:FileHandle} and \ref{app:Vertex}.\\
-We are using a Hash-map where from cities are associated with accesable cities and thier egde cost.
+A routine for loading in the file and appropriate data structures for representing the data is shown in appendices \ref{app:FileHandle} and \ref{app:Vertex}. We are using a Hash-map where from cities are associated with accesable cities and thier egde cost.\\
+Each vertex is represented by a class called Vertex. This includes a string with the name of the vertex, a priority queue  including all of it's edges.  The reason why it has been choosen to use a priorityqueue, instead of an ordinary vector  is to avoid using a sorting algorithm to sort the vector. 
+
+
+
 
 \subsection{Question \#2}
 As mentioned before the from cities is associate to cities with a giving cost.  The apporach for printing the "to cities" is showed by the psodocode and the listing below. 
-
+\bigskip
 \begin{lstlisting}
 printFrom(string from){
 	if(vertices.find(from) == vertices.end()){
@@ -100,7 +103,7 @@ DijkResult Run(from, to){
 }
 \end{lstlisting}
 
-The algorthm works by starting at the "from vertex", visit each adjacent vertex(and add them to the dijkstra priority_queue), add distance and "move" to the node with the shortest distance. 
+The algorthm works by starting at the "from vertex", visit each adjacent vertex(and add them to the dijkstra priority\_queue), add distance and "move" to the node with the shortest distance. 
 It will then again visit each adjacent vertex and update the distance if it's smaller than the distance which is already there.
 Default all distances is initialised to the maximum value an integer can take to represent infiniti distance.
 
