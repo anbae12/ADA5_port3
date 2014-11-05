@@ -8,16 +8,16 @@ Notice that even though there is a route from A to B, there might not be one fro
 \section{Solution}
 \subsection{Question \#1}
 A routine for loading in the file and appropriate data structures for representing the data is shown in appendices \ref{app:FileHandle} and \ref{app:Vertex}. We are using a Hash-map where from cities are associated with accesable cities and thier egde cost.\\
-Each vertex is represented by an instance of the class called Vertex. This includes a string with the name(city) of the vertex, and a priority queue  including all of its edges.  The reason why it has been choosen to use a priorityqueue, instead of an ordinary vector, is to avoid using a sorting algorithm to sort the vector. It is required by the dijkstra algorithm to get the lowest distance/cost.
+Each vertex is represented by an instance of the class called Vertex. This includes a string with the name(city) of the vertex, and a priority queue  including all of its edges.  The reason why it has been choosen to use a priorityqueue, instead of an ordinary vector, is to avoid using a sorting algorithm to sort the vector. It is required by the dijkstra algorithm to get the lowest distance/cost, so a priorityqueue seems appropriate.
 
 To parse the file, the following approach has been used:
 
 \begin{lslisting}
 	foreach(line in file){
-		from = getFrom(line);
+		from = getFrom(line)
 		while(getline(line,to,',') && getline(line,cost,',')) {
-			graph->addVertex(to);
-			graph->addEdge(from, to, cost);
+			graph->addVertex(to)
+			graph->addEdge(from, to, cost)
 		}
 	}
 \end[lslisting]
@@ -32,15 +32,20 @@ For each line in the file, the from-city is extracted. For the rest of the line,
 As mentioned before the from cities is associate to cities with a giving cost.  The apporach for printing the "to cities" is showed by the psodocode and the listing below. 
 \bigskip
 \begin{lstlisting}
-printFrom(from){
+HERE
+void printFrom(std::string from){
 	if(vertices.find(from) == vertices.end()){
-		return "City not found"
+		std::cout <<  "City \"" + from +  "\" not found" << std::endl;
+		return ;
 	}
-	foreach(item in queue(from)){
-		cout << item->element << endl
-	}	
-} 
+	for(auto it = vertices[from]->edge.get_container().begin() ; it != vertices[from]->edge.get_container().end(); ++it ){
+		std::cout << "To: " << it->first->element << " Cost: " <<it->second  << std::endl;
+	}
+}
 \end{lstlisting}
+It first checks if the from-city is in the hashmap. If not, it returns and will not print any associated cities. If found, it will iterate through all the elements in the
+
+If it exists
 \bigskip
 
 Accesable cities from "Odense" is copyed from the console output and showed in table \ref{tb:fromodense}. 
