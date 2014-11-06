@@ -11,7 +11,7 @@ A routine for loading in the file and a appropriate data structure for represent
 The reason why the group use a hash-map is to make the lookup time constant. \\
 Each vertex is represented by an instance of the class called Vertex. This class includes a string with the name of the vertex, a priority queue including all of its edges. Each edge consists of a std::pair, where the first value is a pointer to an adjacent vertex, and the second value is the cost. 
 The reason why a priority queue has been chosen, instead of an ordinary vector, is to avoid using a sorting algorithm to sort the vector.\\
-If the vector was chosen the complexity would increase to O($|V|^2$) insted of O(|E| + |V|log(|V|)). \\
+If the vector was chosen the complexity would increase to \(O(|V|^2)\) insted of \(O(|E| + |V|log(|V|))\). \\
 To parse the file, the following approach has been used:
 \bigskip
 \begin{lstlisting}
@@ -33,13 +33,13 @@ As mentioned before the from-cities are associate to-cities with a giving cost. 
 \begin{lstlisting}
 printFrom(from-city){
 	check all vertices 
-	if ( end of vertices ) return "from-city not found "
+	if ( end of vertices ) return "from-city not found"
 	foreach( adjacent vertex to from-city){
 	    print associated city and giving cost
     }
 }
 \end{lstlisting}
-The iteration through all adjacent vertices has been implemented by inheriting the priority_queue. The underlaying container is protected and there by accessable through inheriting and implementing a get_container() method in the derived class that returns the vector.
+The iteration through all adjacent vertices has been implemented by inheriting the priority queue. The underlaying container is protected and there by accessable through inheriting and implementing a get\_container() method in the derived class that returns the vector.
 \bigskip
 It first checks if the from-city is in the hash-map. If not, it returns and will not print any associated cities. If found, it will iterate through all the associated cities and their cost.\\
 Accessible cities from "Odense" is copied from the console output and showed in table \ref{tb:fromodense}. 
