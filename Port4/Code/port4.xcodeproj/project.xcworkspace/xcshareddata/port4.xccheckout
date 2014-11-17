@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AB1045C3-BF19-4DC2-9934-077E958A6FC9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>port4</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E0B9CA8F21982DD511BCB799A9B9EC46FA3BD13E</key>
+		<string>github.com:anbae12/ADA5_port3.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Port4/Code/port4.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E0B9CA8F21982DD511BCB799A9B9EC46FA3BD13E</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:anbae12/ADA5_port3.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E0B9CA8F21982DD511BCB799A9B9EC46FA3BD13E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E0B9CA8F21982DD511BCB799A9B9EC46FA3BD13E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>port3</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -54,7 +54,7 @@ void print(std::vector<int>&a){
 
 int main() {
     
-    for (int i=1000; i<2000000; i+=1000) {
+    for (int i=1000; i<=4000; i+=1000) {
         clock_timer timer;
         timer.start_timer();
         make_list(1000,10,list);
