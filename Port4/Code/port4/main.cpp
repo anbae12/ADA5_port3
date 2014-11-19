@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>    // std::binary_search, std::sort
 #include <queue>
 #include "clock_timer.h"
 
@@ -51,6 +52,27 @@ void print(std::vector<int>&a){
     std::cout<<""<<std::endl;
 }
 
+
+void binary(int sum, std::vector<int> &list)
+{
+    int find_value = 0;
+    int hits = 0;
+    for (int i = 0; i<list.size(); i++) {
+        find_value = 10 - list[i];
+        
+        if(std::binary_search(list.begin(),list.end(),find_value)){
+            cout << "bool - test" << endl;
+            std::cout << find_value<<" found" << std::endl;
+            hits++;
+        }
+        
+        else
+            std::cout << find_value << " Not found" << std::endl;
+        
+    }
+    
+    cout << "hits - counter " << hits << endl;
+}
 
 int main() {
     
