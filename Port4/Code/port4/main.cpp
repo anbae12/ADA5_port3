@@ -33,7 +33,6 @@ void print_list(){
 
 void find_match(std::vector<int> &a){
     for (int i=0; i<a.size(); i++) {
-        
         for (int j=i+1; j<a.size(); j++) {
             if (a[i]+a[j]==10) {
                 hitsVector.push_back(std::make_pair(i, j));
@@ -54,10 +53,10 @@ void print(std::vector<int>&a){
 
 int main() {
     
-    for (int i=1000; i<=4000; i+=1000) {
+    for (int i=1000; i<=10000; i+=1000) {
         clock_timer timer;
         timer.start_timer();
-        make_list(1000,10,list);
+        make_list(i,10,list);
         find_match(list);
         timer.stop_timer();
         dataVector.push_back(std::make_pair(i, timer.duration));
