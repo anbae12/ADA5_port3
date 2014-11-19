@@ -3,7 +3,7 @@
 clear;
 clc;
 %% A)
-maxNo=30000;
+maxNo=30000; % Have to checked...
 
 load example.txt;
 x = example(:,2);
@@ -25,15 +25,12 @@ plot(y,x,'o');
 xlabel('Time [ms]');
 ylabel('Elements N');
 title('Time as function of elements');
+saveas(gca,'report/graphics/test1', 'epsc')
 
-%% B)
-clear;
-clc;
-maxNo=30000;
-
-load example.txt;
-x1 = example(:,2);
-y1 = example(:,1);
+% B)
+load datanum.txt;
+x1 = datanum(:,2);
+y1 = datanum(:,1);
 
 n1 = (1:maxNo);
 yy1=times(n1,log10(n1));
@@ -51,5 +48,6 @@ plot(y1,x1,'o');
 xlabel('Time [ms]');
 ylabel('Elements N');
 title('Time as function of elements');
+saveas(gca,'report/graphics/test2', 'epsc')
 
 
