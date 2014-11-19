@@ -11,7 +11,7 @@
 #include <algorithm>    // std::binary_search, std::sort
 #include <queue>
 #include "clock_timer.h"
-
+#include <fstream>
 
 
 std::vector<int> list;
@@ -21,6 +21,7 @@ int hits=0;
 
 
 void make_list(int maxElements, int maxNumber, std::vector<int> &list){
+    list.clear();
     for (int i=0; i<maxElements; i++) {
         list.push_back(std::rand()%maxNumber);
     }
@@ -36,7 +37,7 @@ void find_match(std::vector<int> &a){
     for (int i=0; i<a.size(); i++) {
         for (int j=i+1; j<a.size(); j++) {
             if (a[i]+a[j]==10) {
-                hitsVector.push_back(std::make_pair(i, j));
+                //hitsVector.push_back(std::make_pair(i, j));
                 hits++;
             }
          }
@@ -60,7 +61,7 @@ void binary(int sum, std::vector<int> &list)
         find_value = 10 - list[i];
         
         if(std::binary_search(list.begin(),list.end(),find_value)){
-            cout << "bool - test" << endl;
+            std::cout << "bool - test" << std::endl;
             std::cout << find_value<<" found" << std::endl;
             hits++;
         }
@@ -70,15 +71,16 @@ void binary(int sum, std::vector<int> &list)
         
     }
     
-    cout << "hits - counter " << hits << endl;
+    std::cout << "hits - counter " << hits << std::endl;
 }
 
 int main() {
     
-    for (int i=1000; i<=10000; i+=1000) {
+    for (int i=100; i<=30000; i+=600) {
+        std::cout<<"new run: "<<i<<std::endl;
         clock_timer timer;
-        timer.start_timer();
         make_list(i,10,list);
+        timer.start_timer();
         find_match(list);
         timer.stop_timer();
         dataVector.push_back(std::make_pair(i, timer.duration));
@@ -87,12 +89,22 @@ int main() {
     }
     
 
+    
+    
+    std::ofstream myfile;
+    myfile.open ("/Users/Anders/Documents/Robotteknologi/5. semester/ADA/Portfolio/port3/Port4/example.txt");
+    //myfile.open ("Mathias/example.txt");
+    //myfile.open ("Kiddi/example.txt");
     while(!dataVector.empty()) {
-        //std::cout<<"N: "<<dataVector.front().first <<"[ms]: "<<dataVector.front().second <<std::endl;
-        std::cout<<dataVector.front().first <<" , "<<dataVector.front().second <<std::endl;
-        
+        myfile <<dataVector.front().first;
+        myfile<< "\t";
+        myfile<<dataVector.front().second<<"\n";
         dataVector.pop_front();
     }
+    myfile.close();
+    
+    
+    
     
     
     

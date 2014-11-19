@@ -1,13 +1,13 @@
 %% ADA port4 
 % Load plot
 
-filename='example1.dat';
 
-load filename;
-x = filename(:,1);
-y = filename(:,2);
 
-plot(x,y,'o');
+load example.txt;
+x = example(:,2);
+y = example(:,1);
+
+plot(y,x,'o');
 
 xlabel('Time [ms]');
 ylabel('Elements N');
