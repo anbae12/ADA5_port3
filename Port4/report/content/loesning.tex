@@ -3,10 +3,20 @@
 For example we may be given the sequence 4,1,5,2,6,3 and are asked to find a pair of numbers with a sum of 10. In this example 4 and 6 is a valid result.\\
 To solve the portfolio do the following:}
 \begin{itemize}
+<<<<<<< HEAD
 \item \emph{Implement an O\(\left( { N }^{ 2 } \right)\) algorithm for solving the problem.}
 \item \emph{Implement an O\(\left( N\log {N }  \right) \) algorithm for solving the problem. (Hint: Consider sorting the list.)}
 \item \emph{Perform experiments with different values of \textit{N} (generate the associated random lists yourselves)and plot the time as function of \textit{N}, to verify the time complexity.}
 \end{itemize}\emph{You may use a build in sorting algorithm and assume that it sorts in \( N\log {(N) }  \).}
+=======
+
+\item \emph{Implement an O(\(N^{2}\)) algorithm for solving the problem.}
+\item \emph{Implement an O(N Log(N)) algorithm for solving the problem. (Hint: Consider sorting the list.)}
+\item \emph{Perform experiments with different values of N (generate the associated random lists yourselves)
+and plot the time as function of N, to verify the time complexity.}
+\end{itemize}
+\emph{You may use a build in sorting algorithm and assume that it sorts in N Log(N).}
+>>>>>>> c5373ce1b2fa6c83693087124ea097fbbdfcec0a
 
 \section{Use of algorithms}
 \subsection{O(\(N^{2}\))}
@@ -18,6 +28,9 @@ for element1 in list:
          if element1 + elemt2 = sum:
             return true
 \end{lstlisting}
+If the sum is found, the function will return true.
+The maxvalue has been set to two times the max value in the list plus one to make sure its worstcase has been tested.
+The tests have been done by making the sum equal to a higher value than the elements in the list can be.
 To optimize the implementation, the inner for-loop should only run from the outer-loops' position and forward.
 \begin{lstlisting}
   for(int i = 0; i < vector.size(); ++i){
@@ -29,18 +42,18 @@ To optimize the implementation, the inner for-loop should only run from the oute
 
 This will give a time complexity of O(N(N-k)) where k is the time the inner for-loop runs.
 \subsection{O(N Log(N)}
-The problem is solved using a binarysearch algorithm. A requirement for the binary searching algorithm is that the vector of number has to be sorted, before a binary search algorithm can be applied. 
-The algorithm starts by checking the first value of the vector, and calculates, what value it needs to pair up with to get a sum of 10.  Using binary search the needed value will be found in the vector, if the value isn't found in the vector, the next value will be checked.  When a pair is found the algorithm return 1. 
-\\
+\todo[inline]{Description af the algorithm}
+\todo[inline]{Pseudocode}
 
-The time complexity is for the worst case O(NLog(N), since the worst case implies that the whole array has to be looked through, and using binary search the  searching itself taked Log(N) time, thereby fulfilling the criteria of having a time complexity of O(NLog(N)).    
-\\
-
+<<<<<<< HEAD
 The binary search algorithm in use is a build in algorithm which is available from the standard libary \textbf{algoritihm.h}. The binary search algorithm is a bool, which return true or false depending whether or not it finds the value.  The algorithm itself takes 3 parameter, 	a iterator pointing to first element, a iterator pointing to last element, and the value which has to be found. 
 \begin{lstlisting}
 binary_search(v.begin(), v.end(), find_value)
 \end{lstlisting}
 
+=======
+\section{Verify the time complexity}
+>>>>>>> c5373ce1b2fa6c83693087124ea097fbbdfcec0a
 
 \newpage
 \section{Verify the time complexity}
@@ -50,6 +63,7 @@ binary_search(v.begin(), v.end(), find_value)
 Figure \ref{fig:test1} shows an ideal O\(\left( { N }^{ 2 } \right)\) complexity and the data samples is plotted, time as function of elements. If you compare the plots according to the rate of change the curves are exactly alike. 
 
 
+>>>>>>> e94e44887cf20c7b8cc0d272687c2b881d69c28e
 \begin{figure}[th!]
 \centering
 \includegraphics[width=1\textwidth]{./graphics/test1.eps}
@@ -57,8 +71,6 @@ Figure \ref{fig:test1} shows an ideal O\(\left( { N }^{ 2 } \right)\) complexity
 
 \label{fig:test1}
 \end{figure}
-\newpage
-
 
 \subsection{O\(\left( N\log {N }  \right) \)}
 Figure \ref{fig:test2} shows an ideal O\(\left( N\log {N }  \right) \) complexity and the data samples plotted as time as function of elements. If you compare the plots according to the rate of change the curves they are exactly alike. 
