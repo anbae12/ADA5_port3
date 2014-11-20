@@ -1,7 +1,9 @@
 \section{Introduction}
-\emph{We are given an array that contains N numbers and would like to determine if there are two numbers whose sum equals a given number K.\\For example we may be given the sequence 4,1,5,2,6,3 and are asked to find a pair of numbers with a sum of 10. In this example 4 and 6 is a valid result.\\
+\emph{We are given an array that contains N numbers and would like to determine if there are two numbers whose sum equals a given number K.\\
+For example we may be given the sequence 4,1,5,2,6,3 and are asked to find a pair of numbers with a sum of 10. In this example 4 and 6 is a valid result.\\
 To solve the portfolio do the following:}
 \begin{itemize}
+<<<<<<< HEAD
 \item \emph{Implement an O\(\left( { N }^{ 2 } \right)\) algorithm for solving the problem.}
 \item \emph{Implement an O\(\left( N\log {N }  \right) \) algorithm for solving the problem. (Hint: Consider sorting the list.)}
 \item \emph{Perform experiments with different values of \textit{N} (generate the associated random lists yourselves)and plot the time as function of \textit{N}, to verify the time complexity.}
@@ -15,6 +17,51 @@ To solve the portfolio do the following:}
 \subsection{O\(\left( N\log {N }  \right) \)}
 \todo[inline]{Description af the algorithm}
 \todo[inline]{Pseudocode}
+=======
+\item \emph{Implement an O(\(N^{2}\)) algorithm for solving the problem.}
+\item \emph{Implement an O(N Log(N)) algorithm for solving the problem. (Hint: Consider sorting the list.)}
+\item \emph{Perform experiments with different values of N (generate the associated random lists yourselves)
+and plot the time as function of N, to verify the time complexity.}
+\end{itemize}
+\emph{You may use a build in sorting algorithm and assume that it sorts in N Log(N).}
+
+\section{Use of algorithms}
+\subsection{O(\(N^{2}\))}
+\todo[inline]{Description af the algorithm}
+To solve the problem in O(\(N^{2}\)), the group has implemented two for-loops. Each for-loop will iterate through all elements in the list there by O(\(N^{2}\)). For each element, it will then iterate through all elements again to determine if the sum of two elements will yield the result.
+\begin{lstlisting}
+for element1 in list:
+    for element2 in list:
+         if element1 + elemt2 = sum:
+            return true
+\end{lstlisting}
+To optimize the implementation, the inner for-loop should only run from the outer-loops' position and forward.
+\begin{lstlisting}
+  for(int i = 0; i < vector.size(); ++i){
+  	for(int j = i+1; j < vector.size); ++j){
+  		....
+  	}
+  }
+\end{lstlisting}
+
+This will give a time complexity of O(N(N-k)) where k is the time the inner for-loop runs.
+\subsection{O(N Log(N)}
+The problem is solved using a binarysearch algorithm. A requirement for the binary searching algorithm is that the vector of number has to be sorted, before a binary search algorithm can be applied. 
+The algorithm starts by checking the first value of the vector, and calculates, what value it needs to pair up with to get a sum of 10.  Using binary search the needed value will be found in the vector, if the value isn't found in the vector, the next value will be checked.  When a pair is found the algorithm return 1. 
+\\
+
+The time complexity is for the worst case O(NLog(N), since the worst case implies that the whole array has to be looked through, and using binary search the  searching itself taked Log(N) time, thereby fulfilling the criteria of having a time complexity of O(NLog(N)).    
+\\
+
+The binary search algorithm in use is a build in algorithm which is available from the standard libary \textbf{algoritihm.h}. The binary search algorithm is a bool, which return true or false depending whether or not it finds the value.  The algorithm itself takes 3 parameter, 	a iterator pointing to first element, a iterator pointing to last element, and the value which has to be found. 
+\begin{lstlisting}
+binary_search(v.begin(), v.end(), find_value)
+\end{lstlisting}
+\newpage
+\section{Verify the time complexity}
+
+
+>>>>>>> be39e9720f78019c45aead182cebe1350fc41a96
 
 
 \newpage
