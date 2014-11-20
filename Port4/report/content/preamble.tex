@@ -19,10 +19,12 @@
 \usepackage{lipsum,lastpage}  
 \usepackage{hanging}
 \usepackage{tabularx}
+\usepackage{listings} 
 \setlength{\headheight}{15pt}
 \usepackage{filecontents}
 \usepackage{longtable}
 \usepackage{footnote}
+\usepackage{listings}
 \setcounter{tocdepth}{2} % Antal lag i indholdsfortegenlse.
 \setcounter{secnumdepth}{5} % Antal lag i sektioner.
 \usepackage[toc,page]{appendix} % appendices
@@ -32,6 +34,13 @@
 \counterwithin{table}{section}
 \counterwithin{equation}{section}
 \usepackage{etex}
+\definecolor{dkgreen}{rgb}{0,0.6,0} 
+\definecolor{gray}{rgb}{0.5,0.5,0.5} 
+\definecolor{mauve}{rgb}{0.58,0,0.82} 
+\DeclareCaptionFont{red}{\color{gray}} 
+\captionsetup{textfont={footnotesize,sc,red},font={footnotesize,sc,red}} 
+\lstset{frame=false, language=C++, aboveskip=3mm, belowskip=3mm, showstringspaces=false, columns=flexible, basicstyle={\small\ttfamily}, numbers=left, numberstyle=\tiny\color{gray}, keywordstyle=\color{blue}, commentstyle=\color{dkgreen}, stringstyle=\color{mauve}, breaklines=true, breakatwhitespace=true, tabsize=3, moredelim=**[is][\color{mauve}]{@}{@}, }
+
 
 % % Tosidet margin:
 % \usepackage[margin=2.5cm, inner =3cm,outer =2cm]{geometry}

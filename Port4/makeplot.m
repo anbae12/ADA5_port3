@@ -21,6 +21,7 @@ ylabel('Elements N');
 title('Time as function of elements');
 saveas(gca,'report/graphics/test1', 'epsc')
 
+
 % B)
 load B.txt;
 x1 = B(:,2);
