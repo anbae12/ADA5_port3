@@ -21,7 +21,7 @@ ylabel('Elements N');
 title('Time as function of elements');
 saveas(gca,'report/graphics/test1', 'epsc')
 
-<<<<<<< Updated upstream
+
 % B)
 load B.txt;
 x1 = B(:,2);
@@ -36,16 +36,6 @@ ylabel('Elements N');
 title('O(N log(N))');
 subplot(2,1,2)
 plot(y1,x1,'o');
-=======
-datanum='example1.dat';
-
-load datanum;
-x = datanum(:,1);
-y = datanum(:,2);
-
-plot(x,y,'o');
-
->>>>>>> Stashed changes
 xlabel('Time [ms]');
 ylabel('Elements N');
 title('Time as function of elements');
