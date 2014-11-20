@@ -10,30 +10,38 @@ To solve the portfolio do the following:}
 \end{itemize}\emph{You may use a build in sorting algorithm and assume that it sorts in \( N\log {(N) }  \).}
 
 \section{Use of Algorithms}
-A description of the algorithms mentioned in Section \ref{sec:algorithm1} and \ref{sec:algorithm2}. 
+A description of the algorithms is mentioned in Section \ref{sec:algorithm1} and \ref{sec:algorithm2}. 
 The complexity of the algorithms is verified in Section \ref{sec:ver}.
 The source code of the algorithms used to solve the problem is showed in Appendix \ref{app:matcher}.
 
 
 \subsection{O\(\left( { N }^{ 2 } \right)\) Algorithm}
 \label{sec:algorithm1} 
-\todo[inline]{Description af the algorithm}
-\todo[inline]{Pseudocode}
-
-
-O\(\left( { N }^{ 2 } \right)\)
-
-O\(\left( N\log {(N)}  \right) \)
-
-\( \log {(N)} \)
-
+To solve the problem in O\(\left( { N }^{ 2 } \right)\), the group has implemented two for-loops. Each for-loop will iterate through all elements in the list thereby O\(\left( { N }^{ 2 } \right)\). For each element, it will then iterate through all elements again to determine if the sum of two elements will yield the result.
+\begin{lstlisting}
+for element1 in list:
+   for element2 in list:
+        if element1 + elemt2 = sum:
+           return true
+\end{lstlisting}
+If the sum is found, the function will return true.
+The match value has been set to two times the max value in the list plus one to make sure its worst case scenario.
+To optimize the implementation, the inner for-loop should only run from the outer-loops' position and forward.
+\begin{lstlisting}
+ for(int i = 0; i < vector.size(); ++i){
+     for(int j = i+1; j < vector.size); ++j){
+         ....
+     }
+ }
+\end{lstlisting}
+This will give a complexity of O\(\left(N\left(  N - k \right)\right)\) where k is the time the inner for-loop runs.
 
 \subsection{O\(\left( N\log {(N)}  \right) \) Algorithm}
 \label{sec:algorithm2}
-The problem is solved using a binary search algorithm. A requirement for the binary searching algorithm is that the vector of number has to be sorted, before a binary search algorithm can be applied. \\
+The complexity is solved using a binary search algorithm. A requirement for the binary search algorithm is that the vector of number has to be sorted, before a binary search algorithm can be applied. \\
 The algorithm starts by checking the first value of the vector, and calculates, what value it needs to pair up with to get a sum of \emph{K}.  Using binary search the needed value will be found in the vector, if the value isn't found in the vector, the next value will be checked.  When a pair is found the algorithm \emph{return 1}. \\
 
-The binary search algorithm in use is a build in algorithm which is available from the standard library \emph{algorithm.h}. The binary search algorithm is a bool, which return true or false depending whether or not it finds the value. The algorithm itself takes 3 parameter, a iterator pointing to first element, a iterator pointing to last element, and the value which has to be found. 
+A implementation of the binary search algorithm is available from the standard library \emph{algorithm.h}. The binary search algorithm is a boolean, which return true or false depending whether or not it finds the value. The algorithm itself takes 3 parameter, a iterator pointing to first element, a iterator pointing to last element, and the value which has to be found. 
 \begin{lstlisting}
 binary_search(v.begin(), v.end(), find_value)
 \end{lstlisting}
@@ -41,7 +49,8 @@ binary_search(v.begin(), v.end(), find_value)
 \newpage
 \section{Verify the Time Complexity for the Algorithms}
 \label{sec:ver}
-One hundred lists with elements in range of [1000 100000] are used for testing the worst case complexity of the algorithms. To get the worst time case the "search number" must not be included as a element, therefore the lists are not random generated. 
+One hundred lists with elements in range of [1000 100000] elements are used for testing the worst case complexity of the algorithms. To get the worst time case the "search number" must not be included as a element, therefore the lists are not random generated. 
+
 
 \subsection{O\(\left( { N }^{ 2 } \right)\) Implementation}
 Figure \ref{fig:test1} shows an ideal O\(\left( { N }^{ 2 } \right)\) complexity and the data samples is plotted, time as function of elements. If you compare the plots according to the rate of change the curves are exactly alike. \\
@@ -70,4 +79,4 @@ The complexity is in worst case O\(\left( N\log {(N)}  \right) \), since the wor
 
 
 \section{Conclusion}
-By using two different algorithms to find matching numbers in the same data structures it is necessary to think about the complexity of the algorithm. As illustrated in Figure \ref{fig:test1} and Figure \ref{fig:test1}, a implementation with the worst case complexity O\(\left( N\log {(N)}  \right) \) is appropriate for this giving problem.
+By using two different algorithms to find matching numbers in the same data structures it is necessary to think about the complexity of the algorithm as illustrated in Figure \ref{fig:test1} and Figure \ref{fig:test1}. A implementation with the worst case complexity O\(\left( N\log {(N)}  \right) \) is appropriate for this giving problem.
