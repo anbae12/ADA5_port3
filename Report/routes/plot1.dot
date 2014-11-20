@@ -1,0 +1,10 @@
+digraph G{
+	Odense->Værløse[label="0"];
+	Værløse->Rødvig_Stevns[label="0"];
+	Rødvig_Stevns->Humle[label="0"];
+	Humle->Skørping[label="0"];
+	Skørping->Kerteminde[label="0"];
+	Kerteminde->Næstved[label="0"];
+}
+
+// Odense -> Værløse -> Rødvig Stevns -> Humble -> Skørping -> Kerteminde -> Næstved
