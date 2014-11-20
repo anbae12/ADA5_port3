@@ -31,4 +31,3 @@ int Matcher::nSquare(int sum, std::vector<int> &list){
 	}
 	return 0;
 }
-

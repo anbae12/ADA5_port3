@@ -1,112 +1,47 @@
-//
 //  main.cpp
 //  port4
 //
-//  Created by Anders Launer Bæk on 14/11/14.
-//  Copyright (c) 2014 Anders Launer Bæk. All rights reserved.
+//  Created by Anders Launer Baek on 14/11/14.
+//  Copyright (c) 2014 Anders Launer Baek. All rights reserved.
 //
 
 #include <iostream>
 #include <vector>
 #include <algorithm>    // std::binary_search, std::sort
 #include <queue>
-#include "clock_timer.h"
 #include <fstream>
-
+#include "clock_timer.h"
+#include "Matcher.h"
 
 std::vector<int> list;
 std::vector<std::pair<int, int>> hitsVector;
 std::deque<std::pair<int, int>> dataVector;
-int hits=0;
-
-
-void make_list(int maxElements, int maxNumber, std::vector<int> &list){
-    list.clear();
-    for (int i=0; i<maxElements; i++) {
-        list.push_back(std::rand()%maxNumber);
-    }
-}
-void print_list(){
-    while(!list.empty()) {
-        std::cout<<list.back() <<std::endl;
-        list.pop_back();
-    }
-}
-
-void find_match(std::vector<int> &a){
-    for (int i=0; i<a.size(); i++) {
-        for (int j=i+1; j<a.size(); j++) {
-            if (a[i]+a[j]==10) {
-                //hitsVector.push_back(std::make_pair(i, j));
-                hits++;
-            }
-         }
-     }
-    
-}
-
-void print(std::vector<int>&a){
-    for (int i=0; i<a.size() ; i++) {
-        std::cout<<a[i]<<" ";
-    }
-    std::cout<<""<<std::endl;
-}
-
-
-void binary(int sum, std::vector<int> &list)
-{
-    int find_value = 0;
-    int hits = 0;
-    for (int i = 0; i<list.size(); i++) {
-        find_value = 10 - list[i];
-        
-        if(std::binary_search(list.begin(),list.end(),find_value)){
-            std::cout << "bool - test" << std::endl;
-            std::cout << find_value<<" found" << std::endl;
-            hits++;
-        }
-        
-        else
-            std::cout << find_value << " Not found" << std::endl;
-        
-    }
-    
-    std::cout << "hits - counter " << hits << std::endl;
-}
 
 int main() {
-    
-    for (int i=100; i<=30000; i+=600) {
-        std::cout<<"new run: "<<i<<std::endl;
+    Matcher match;
+    for (int i=1000; i<=100000; i+=1000) {
         clock_timer timer;
-        make_list(i,10,list);
+        list.clear();
+        for(int j = 0; j <= i; ++j){
+            list.push_back(j);
+        }
         timer.start_timer();
-        find_match(list);
+        int hits1 = match.nSquare(i*2+1, list);
+        //int hits2 = match.nLogn(i*2+1, list);
         timer.stop_timer();
         dataVector.push_back(std::make_pair(i, timer.duration));
-        //std::cout << "Number of hits: "<<hits<<std::endl;
-        hits=0;
+        std::cout << "found: " << hits1 << std::endl;
     }
     
-
-    
-    
     std::ofstream myfile;
-    myfile.open ("/Users/Anders/Documents/Robotteknologi/5. semester/ADA/Portfolio/port3/Port4/example.txt");
-    //myfile.open ("Mathias/example.txt");
-    //myfile.open ("Kiddi/example.txt");
+    myfile.open("A.txt");
+    
     while(!dataVector.empty()) {
-        myfile <<dataVector.front().first;
-        myfile<< "\t";
-        myfile<<dataVector.front().second<<"\n";
+        std::cout<<dataVector.front().first <<" , "<<dataVector.front().second <<std::endl;
+        myfile<< dataVector.front().first << "\t" << dataVector.front().second << "\n";
         dataVector.pop_front();
     }
     myfile.close();
-    
-    
-    
-    
-    
     
     return 0;
 }
