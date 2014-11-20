@@ -1,0 +1,9 @@
+\subsection{O(N Log(N)}
+The problem is solved using a binarysearch algorithm. A requirement for the binary sorting algorithm is that the vector of number has to be sorted, before a binary search algorithm can be applied. 
+The algorithm starts by checking the first value of the vector, and calculates, what value it needs to pair up with to get a sum of 10.  Using binary search the needed value will be found in the vector, if the value isn't found in the vector, the next value will be checked.  When a pair is found the algorithm return 1. 
+\\
+The time complexity is for the worst case O(NLog(N), since the worst case implies that the whole array has to be looked through, and using binary search the  searching itself taked Log(N) time, thereby fulfilling the criteria of having a time complexity of O(NLog(N)).    
+\\
+The binary search algorithm in use is a build in algorithm which is available from the standard libary \textbf{Algoritihm.h}. The binary search algorithm is a bool, which return true or false depending whether or not it finds the value.  The algorithm itself takes 3 parameter, 	a iterator pointing to first element, a iterator pointing to last element, and the value which has to be found. 
+\textbf{binary_search(v.begin(), v.end(), find_value);}
+
