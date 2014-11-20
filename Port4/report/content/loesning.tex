@@ -3,6 +3,7 @@
 For example we may be given the sequence 4,1,5,2,6,3 and are asked to find a pair of numbers with a sum of 10. In this example 4 and 6 is a valid result.\\
 To solve the portfolio do the following:}
 \begin{itemize}
+
 \item \emph{Implement an O(\(N^{2}\)) algorithm for solving the problem.}
 \item \emph{Implement an O(N Log(N)) algorithm for solving the problem. (Hint: Consider sorting the list.)}
 \item \emph{Perform experiments with different values of N (generate the associated random lists yourselves)
@@ -39,20 +40,36 @@ This will give a time complexity of O(N(N-k)) where k is the time the inner for-
 
 \section{Verify the time complexity}
 
-\subsection{O(\(N^{2}\))}
-\todo[inline]{Description of the plot}
+\newpage
+\section{Verify the time complexity}
+
+\subsection{O\(\left( { N }^{ 2 } \right)\)}
+Figure \ref{fig:test1} shows an ideal O\(\left( { N }^{ 2 } \right)\) complexity and the data samples is plotted, time as function of elements. If you compare the plots according to the rate of change the curves are exactly alike. 
+
+
+>>>>>>> e94e44887cf20c7b8cc0d272687c2b881d69c28e
 \begin{figure}[th!]
 \centering
 \includegraphics[width=1\textwidth]{./graphics/test1.eps}
-\caption[tekst i indholdsfortegnelsen]{figurtekst}
-\label{fig:}
+\caption{Show plots of an ideal O\(\left( { N }^{ 2 } \right)\) complexity and data samples from the used algorithm.}
+
+\label{fig:test1}
 \end{figure}
 
-\subsection{O(N Log(N)}
-\todo[inline]{Description of the plot}
+\subsection{O\(\left( N\log {N }  \right) \)}
+Figure \ref{fig:test2} shows an ideal O\(\left( N\log {N }  \right) \) complexity and the data samples plotted as time as function of elements. If you compare the plots according to the rate of change the curves they are exactly alike. 
+
+
+
 \begin{figure}[th!]
 \centering
 \includegraphics[width=1\textwidth]{./graphics/test2.eps}
-\caption[tekst i indholdsfortegnelsen]{figurtekst}
-\label{fig:}
+\caption{Show plots of an ideal O\(\left( N\log {N }  \right) \) complexity and data samples from the used algorithm.}
+\label{fig:test2}
 \end{figure}
+
+
+
+O\(\left( { N }^{ 2 } \right)\)
+
+O\(\left( N\log {N }  \right) \)
