@@ -8,12 +8,9 @@
 #include "Matcher.h"
 
 int Matcher::nLogn(int sum, std::vector<int> list){
-	int hits = 0;
 	sort(list.begin(), list.end());
-
 	for(unsigned int i = 0; i < list.size(); ++i){
 		int find_value = sum - list[i];
-
 		if(std::binary_search(list.begin(), list.end(),find_value)){
 			return 1;
 		}
