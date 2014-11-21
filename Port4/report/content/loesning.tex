@@ -6,8 +6,10 @@ To solve the portfolio do the following:}
 
 \item \emph{Implement an O\(\left( { N }^{ 2 } \right)\) algorithm for solving the problem.}
 \item \emph{Implement an O\(\left( N\log {(N)}  \right) \) algorithm for solving the problem. (Hint: Consider sorting the list.)}
-\item \emph{Perform experiments with different values of N (generate the associated random lists yourselves)and plot the time as function of N, to verify the time complexity.}
-\end{itemize}\emph{You may use a build in sorting algorithm and assume that it sorts in \( N\log {(N) }  \).}
+\item \emph{Perform experiments with different values of N (generate the associated random lists yourselves)
+and plot the time as function of N, to verify the time complexity.}
+\end{itemize}
+\emph{You may use a build in sorting algorithm and assume that it sorts in \( N\log {(N) }  \).}
 
 \section{Use of Algorithms}
 A description of the algorithms is mentioned in Section \ref{sec:algorithm1} and \ref{sec:algorithm2}. 
@@ -39,9 +41,9 @@ This will give a complexity of O\(\left(N\left(  N - k \right)\right)\) where k 
 \subsection{O\(\left( N\log {(N)}  \right) \) Algorithm}
 \label{sec:algorithm2}
 The complexity is solved using a binary search algorithm. A requirement for the binary search algorithm is that the vector of number has to be sorted, before a binary search algorithm can be applied. \\
-The algorithm starts by checking the first value of the vector, and calculates, what value it needs to pair up with to get a sum of \emph{K}.  Using binary search the needed value will be found in the vector, if the value isn't found in the vector, the next value will be checked.  When a pair is found the algorithm \emph{return 1}. \\
+The algorithm starts by checking the first element of the vector, and calculates what value it needs to pair up with to get a sum of \emph{K}.  Using binary search the needed value will be found in the vector, if the value is not found in the vector, the next value will be checked.  When a pair is found the algorithm \emph{return 1}. \\
 
-A implementation of the binary search algorithm is available from the standard library \emph{algorithm.h}. The binary search algorithm is a boolean, which return true or false depending whether or not it finds the value. The algorithm itself takes 3 parameter, a iterator pointing to first element, a iterator pointing to last element, and the value which has to be found. 
+A implementation of the binary search algorithm is available from the standard library \emph{algorithm.h}. The binary search algorithm returns true or false depending whether or not it finds the value. The algorithm itself takes 3 parameters, an iterator pointing to first element, an iterator pointing to last element and the value which has to be found. 
 \begin{lstlisting}
 binary_search(v.begin(), v.end(), find_value)
 \end{lstlisting}
